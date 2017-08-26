@@ -30,7 +30,7 @@ class Login {
 		//adatbázis kapcsolat 
 		//self::$pdo = newPdoConnection();
 		if(!(self::$database instanceof \PDO)) {
-			  self::$database = (new MyDatabaseConnection())->dataBaseConnect();
+			  self::$database = MyDatabaseConnection::dataBaseConnect();
 		}
 		$this->request = $request;
 		//$this->database = $this->database->dataBaseConnect();

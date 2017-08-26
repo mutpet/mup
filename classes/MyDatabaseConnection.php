@@ -8,7 +8,7 @@
  */
 class MyDatabaseConnection{
 
-		public function dataBaseConnect() {
+		public static function dataBaseConnect() {
 			$pdo = null;
 			$options = array(
 										\PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,

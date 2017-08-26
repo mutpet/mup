@@ -39,7 +39,7 @@ class Registration {
 	public function __construct($request = array()) {
 		//adatbázis kapcsolat 
 		if(!(self::$database instanceof \PDO)) {
-			  self::$database = (new MyDatabaseConnection())->dataBaseConnect();
+			  self::$database = MyDatabaseConnection::dataBaseConnect();
 			  self::$confirm_code = mt_rand();
 		}
 		$this->request = $request;

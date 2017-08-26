@@ -29,7 +29,7 @@ class Logout {
 		//adatbázis kapcsolat 
 		//self::$pdo = newPdoConnection();
 		if(!(self::$database instanceof \PDO)) {
-			  self::$database = (new MyDatabaseConnection())->dataBaseConnect();
+			  self::$database = MyDatabaseConnection::dataBaseConnect();
 		}
 		$this->request = $request;
 		
@@ -40,7 +40,7 @@ class Logout {
 		//destroy session
 			unset($_SESSION['username']);
 		//unset cookies
-			setcookie('user','',time()-120);   
+			setcookie('user','',time()-86400);   
 			$_SESSION['message'] = "Ön sikeresen kijelentkezett!";
 			header("location: index.php");
 			exit();

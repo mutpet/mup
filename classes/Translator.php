@@ -35,7 +35,7 @@ class Translator {
 	public function __construct ($session = array(), $filename = null) {
 		//adatbázis kapcsolat 
 		if(!(self::$database instanceof \PDO)) {
-			  self::$database = (new MyDatabaseConnection())->dataBaseConnect();
+			  self::$database = MyDatabaseConnection::dataBaseConnect();
 		}
 		$this->session = $session;
 		$this->filename = $filename;
