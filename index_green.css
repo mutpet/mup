@@ -1,0 +1,67 @@
+body {
+     background: url("images/5.jpg"); 
+	/* background-attachment: fixed; */
+}
+header {
+	background: url("images/pattern.png");
+	background-color: #88c53a; /* #33adff;  */ /* #88c53a; */
+	background-repeat: repeat-x;
+	font-family: "Open Sans", Arial, sans-serif;
+	font-weight: bold;
+	color: #fff !important;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #111;
+}
+
+.active {
+    background-color: #4CAF50;
+}
+#myself{
+	float: right;
+	
+}
+article {
+	width: 45%;
+	height: 70%;
+	bolder: 10px solid white;
+	border-radius: 10px;
+	background-color: white;
+	opacity: 0.9;
+	box-shadow: 10px 10 px #fff;
+	color: white;
+}
+section {
+	align: center;
+	width: 95%;
+	height: 60%
+	border-radius: 15px;
+	background-color: #e6e6e6;
+}
+footer {
+	background: url("images/pattern.png");
+	background-color:  #88c53a;
+	background-repeat: repeat-x;
+	font-family: "Open Sans", Arial, sans-serif;
+	font-weight: bolder;
+}

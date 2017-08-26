@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>Regisztráció</title>
+	<link rel="icon" type="image/gif/png" href="images/mup_ico.png">
+	<link rel="stylesheet" type="text/css" href="regisztracio.css">
+</head>
+<body>
+<div class="header">
+	<h1>Regisztráció</h1>
+</div>
+
+<form action="regisztralas_feldolgozas.php" method="post">
+	<table>
+		<tr>
+			<td><span class="felirat">Teljes név:</span></td>
+			<td><input type="text" id="nev" name="nev" class="nevInput"></td>
+		</tr>
+		<tr>
+			<td><span class="felirat">Felhasználó név:</span></td>
+			<td><input class="userInput" type="text" id="usernev" name="usernev" ></td>
+		</tr>
+		<tr>
+			<td><span class="felirat">E-mail cím:</span></td>
+			<td><input type="email" id="email" name="email" class="emailInput"></td>
+		</tr><tr>
+			<td><span class="felirat">Jelszó:</span></td>
+			<td><input type="password" id="jelszo" name="jelszo" class="passInput"></td>
+		</tr><tr>
+			<td><span class="felirat">Jelszó megerősítése:</span></td>
+			<td><input type="password" id="jelszo2" name="jelszo2" class="passInput2"></td>
+		</tr><tr>
+			<td></td>
+			<td><input type="submit" id="regisztral_gomb" name="regisztral_gomb" value="Regisztráció"></td>
+		</tr>
+	</table>	
+</form>
+
+</body>
+</html>

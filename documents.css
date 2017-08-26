@@ -1,0 +1,141 @@
+@import url('//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css');
+/* <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> */
+html, body {
+		overflow-x: hidden;
+		width: 100%;
+		/*height: 100%;*/
+		margin: 0;
+		padding:0;
+		background-image: url("images/myweb_background.png");
+		background-repeat: no-repeat;
+		background-size: cover;
+}
+#doc_h1 {
+	position: relative;
+	color: lightgray;
+	text-shadow: rgba(82,122,122,1) -1px -2px 0.6em;
+}
+.doc{
+	position: relative;
+	color: lightgray;
+}
+.doc_table{
+	font-family: Arial, Helvetica, sans-serif;
+	color: lightgray;
+}
+.file_img{
+	width: 60%;
+	height: 70%;
+}
+.sam_img{
+	width: 35%;
+	height: 40%;
+}
+.cert_img{
+	width: 60%;
+	height: 60%;
+}
+lang_img{
+	width: 55%;
+	height: 45%;
+}
+.oth_img{
+	width: 80%;
+	height: 80%;
+}
+.oth2_img{
+	width: 50%;
+	height: 35%;	
+}
+
+.img_text{
+	font-family: Arial, Helvetica, sans-serif; /* Verdana, Geneva, sans-serif; Trebuchet MS’, Helvetica, sans-serif; /*Tahoma, Geneva, sans-serif;  /*Verdana, Geneva, sans-serif; /*Lucida Console’, Monaco, monospace; /* Arial, Helvetica, sans-serif; */
+	font-size: small;
+	color: lightgray;
+}
+
+/* Facebook Like/megosztás gomb pozícionálása */
+.fb-like{
+		text-align: center;
+		padding-top: 11px;
+}
+
+/* Média gombok, és hover animációik: */
+.hide-text{
+	text-indent: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+	display: block;
+}
+
+.ease-all{
+	-webkit-transition: all 400ms ease-in-out;
+	-moz-transition: all 400ms ease-in-out;
+	-o-transition: all 400ms ease-in-out;
+	-ms-transition: all 400ms ease-in-out;
+	transition: all 400ms ease-in-out;
+}
+
+/* Szociál Ikonok */
+
+.social{
+  height: 1rem;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+
+.social td a{
+	display: inline-block;
+	float: left;
+	width: 30px;
+	height: 24px;
+	margin-right: 5px;
+	text-align: center;
+	padding-top: 6px;
+	
+	-webkit-border-radius:20px;
+	-moz-border-radius:20px;
+	-o-border-radius:20px;
+	-ms-border-radius:20px;
+	border-radius:20px;
+	
+	/*background-color: #222;*/
+	-webkit-box-shadow: inset 0 0 0 40px #222;
+	-moz-box-shadow: inset 0 0 0 40px #222;
+	-o-box-shadow: inset 0 0 0 40px #222;
+	-ms-box-shadow: inset 0 0 0 40px #222;
+	box-shadow: inset 0 0 0 40px #222;
+	
+	color: #fff;
+}
+
+.social td a:hover{
+	-webkit-box-shadow: inset 0 0 0 3px #222;
+	-moz-box-shadow: inset 0 0 0 3px #222;
+	-o-box-shadow: inset 0 0 0 3px #222;
+	-ms-box-shadow: inset 0 0 0 3px #222;
+	box-shadow: inset 0 0 0 3px #222;
+	
+	color: #222;
+}
+
+.chip {
+    display: inline-block;
+    padding: 0 25px;
+    height: 40px;
+    font-size: 16px;
+    line-height: 40px;
+    border-radius: 25px;
+    background-color: #f1f1f1;
+}
+
+.chip img {
+    float: left;
+    margin: -4px 6px 0 -25px;
+    height: 50px;
+    width: 51px;
+    border-radius: 50%;	
+}

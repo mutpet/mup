@@ -1,0 +1,277 @@
+@import url('https://fonts.googleapis.com/css?family=Caveat:400,700&subset=latin-ext');
+@import url('//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css');
+/* <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> */
+html, body {
+     /*background: url("images/index_background.jpg");*/
+	 /*background-attachment: fixed;*/
+		/*overflow: auto !important; */
+		overflow-x: hidden;
+		width: 100%;
+		/*height: 100%;*/
+		margin: 0;
+		padding:0;
+		background-image: url("images/index_background.jpg");
+		background-repeat: no-repeat;
+		background-size: cover;
+}
+
+.main_background{
+	 background-image: url("images/index_background.jpg");
+	 background-repeat: no-repeat;
+	 background-size: cover;
+}
+#welcome {
+	position: relative;
+	margin-top: 1%;
+	margin-left: 2%;
+	font-family:   Lucida Console’, Monaco, monospace;  /*Trebuchet MS’, Helvetica, sans-serif; /*Tahoma, Geneva, sans-serif;  /*Verdana, Geneva, sans-serif; /*Lucida Console’, Monaco, monospace; /* Arial, Helvetica, sans-serif; */
+	font-size: large;
+}
+
+#slideshow { 
+    margin:  5px; 
+    position: relative; 
+	float:left;
+    width: 10%;
+    height: 10%; 
+    padding: 10%;
+	background-color: #e6e6e6;	
+	opacity: 1;
+   /* box-shadow: 0 0 20px rgba(0,0,0,0.4); */ 
+}
+
+#slideshow > div { 
+    position: absolute; 
+	left: 5px;
+	top: 5px;
+	background-color: #e6e6e6;
+	opacity: 0.9;
+}
+
+#myself{
+	position: relativ;
+	float: right;
+}
+
+#main_article {
+	width: 45%;
+	height: auto !important;
+	bolder-width: 0.5px; 
+	border-style: solid; 
+	border-color: darkgray;
+	border-radius: 8px;
+	background-color: #595959;
+	opacity: 0.75;
+	/*box-shadow: 10px 10 px #fff;*/
+	color: white;
+	overflow: hidden;
+}
+#s1 {
+	margin-left: 0%;
+	width: 100% !important;
+	height: 95%;
+	border-width: 1px;
+	border-style: solid;
+	border-radius: 15px;
+	border-color: black;
+	background-color: white;
+	background-color: #e6e6e6;
+	opacity: 0.9;
+	color: black;
+	/*
+	margin-left: 2%;
+	width: 95%;
+	height: 30%;
+	border-width: 3px;
+	border-style: solid;
+	border-radius: 15px;
+	border-color: black;
+	background-clip: padding-box;
+	background: #e6e6e6;
+	opacity: 0.9;
+	color: black; */
+	transition: width 3s;
+	-webkit-transition: width 3s;
+}
+fieldset {
+	margin-left: 2%;
+	width: 93%;
+	height: 35%;
+	border-width: 3px;
+	border-style: solid;
+	border-radius: 15px;
+	border-color: black;
+	border-radius: 15px;
+	background-color: white;
+	background-color: #e6e6e6;
+	opacity: 0.9;
+	color: black;
+	transition: width 3s;
+	-webkit-transition: width 3s;
+	
+}
+fieldset legend {
+	background: #1F497D;
+    color: #fff;
+    padding: 5px 10px ;
+    font-size: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 0 5px #ddd;
+    margin-left: 20px;
+}
+
+#s1:hover {
+	height: 470px;
+}
+
+fieldset:hover {
+	height: 500px;
+}
+
+#s2 {
+	margin-left: 0%;
+	width: 100% !important;
+	height: 95%;
+	border-width: 1px;
+	border-style: solid;
+	border-radius: 15px;
+	border-color: black;
+	background-color: white;
+	background-color: #e6e6e6;
+	opacity: 0.9;
+	color: black;
+	transition: width 3s;
+	-webkit-transition: width 3s;
+}
+
+#s2:hover {
+	height: 470px;
+}
+
+#s3 {
+	margin-left: 0%;
+	width: 100% !important;
+	height: 95%;
+	border-width: 1px;
+	border-style: solid;
+	border-radius: 15px;
+	border-color: black;
+	background-color: white;
+	background-color: #e6e6e6;
+	opacity: 0.9;
+	color: black;
+	transition: width 3s;
+	-webkit-transition: width 3s;
+}
+#s3:hover {
+	height: 470px;
+}
+.person_font {
+	font-family: 'Caveat', cursive;
+    font-weight: bold;
+	font-size: 20px;
+}
+/*
+#s3 {
+	margin-left: 2%;
+	width: 95%;
+	height: 38%;
+	border-width: 3px;
+	border-style: solid;
+	border-radius: 15px;
+	border-color: black;
+	border-radius: 15px;
+	background-color: white;
+	background-color: #e6e6e6;
+	opacity: 0.9;
+	color: black;
+}
+*/
+/* Facebook Like/megosztás gomb pozícionálása */
+.fb-like{
+		text-align: center;
+		padding-top: 11px;
+}
+
+/* Média gombok, és hover animációik: */
+.hide-text{
+	text-indent: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+	display: block;
+}
+
+.ease-all{
+	-webkit-transition: all 400ms ease-in-out;
+	-moz-transition: all 400ms ease-in-out;
+	-o-transition: all 400ms ease-in-out;
+	-ms-transition: all 400ms ease-in-out;
+	transition: all 400ms ease-in-out;
+}
+
+/* Szociál Ikonok */
+
+.social{
+  height: 1rem;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+
+.social td a{
+	display: inline-block;
+	float: left;
+	width: 30px;
+	height: 24px;
+	margin-right: 5px;
+	text-align: center;
+	padding-top: 6px;
+	
+	-webkit-border-radius:20px;
+	-moz-border-radius:20px;
+	-o-border-radius:20px;
+	-ms-border-radius:20px;
+	border-radius:20px;
+	
+	/*background-color: #222;*/
+	-webkit-box-shadow: inset 0 0 0 40px #222;
+	-moz-box-shadow: inset 0 0 0 40px #222;
+	-o-box-shadow: inset 0 0 0 40px #222;
+	-ms-box-shadow: inset 0 0 0 40px #222;
+	box-shadow: inset 0 0 0 40px #222;
+	
+	color: #fff;
+}
+
+.social td a:hover{
+	-webkit-box-shadow: inset 0 0 0 3px #222;
+	-moz-box-shadow: inset 0 0 0 3px #222;
+	-o-box-shadow: inset 0 0 0 3px #222;
+	-ms-box-shadow: inset 0 0 0 3px #222;
+	box-shadow: inset 0 0 0 3px #222;
+	
+	color: #222;
+}
+
+
+
+.chip {
+    display: inline-block;
+    padding: 0 25px;
+    height: 40px;
+    font-size: 16px;
+    line-height: 40px;
+    border-radius: 25px;
+    background-color: #f1f1f1;
+}
+
+.chip img {
+    float: left;
+    margin: -4px 6px 0 -25px;
+    height: 50px;
+    width: 51px;
+    border-radius: 50%;
+	
+}

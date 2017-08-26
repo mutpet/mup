@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css?family=Work+Sans:200&subset=latin-ext');
+
+html, body {
+    height:100%;
+    margin:0;
+    padding:0;
+    font-family: "Work sans",Arial;
+    color: white;
+}
+
+a {
+    color: white;
+}
+
+.cim {
+    font-size: 50px;
+}
+
+.alcim {
+    font-size: 28px;
+}
+
+.vkozepre {
+    position: absolute;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, 0);
+}
+
+.fkozepre {
+    position: absolute;
+    top: 50%;
+    margin-bottom: -50%;
+    transform: translate(0, -50%);
+}
+
+.vfkozepre {
+    position: absolute;
+    top: 50%;
+    margin-bottom: -50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.fejlec {
+    font-family: Arial;
+    position: absolute;
+    top: 0;
+    font-size: 12px;
+    text-transform: uppercase;
+    margin-top: 5px;
+}
+
+.lablec {
+    font-family: Arial;
+    position: absolute;
+    bottom: 0;
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+.fejlec a {
+    margin:0px 10px;
+    text-decoration: none;
+}
+
+.lablec a {
+    margin:0px 10px;
+    text-decoration: none;
+}
+
+.gombdoboz {
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.gomb {
+    padding: 15px;
+    margin: 10px;
+    width: 200px;
+    background: rgba(0, 0, 0, 0.5);;
+    font-family: Arial;
+    font-size: 16px;
+    text-align: center;
+    text-transform: uppercase;
+    display: inline-block;
+}
+
+.gomb a {
+	text-decoration: none;	
+}	
+	
+.piros {
+    border: 1px solid red;
+}
+
+.fullscreen-bg {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: -100;
+}
+
+.fullscreen-bg__video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: auto;
+    height: auto;
+    min-width: 100%;
+    min-height: 100%;
+    -webkit-transform: translate(-50%, -50%);
+       -moz-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+	    transform: translate(-50%, -50%);
+}
+
+@media (max-width: 767px) {
+    .fullscreen-bg {
+        background: url('images/service_background.jpg') center center / cover no-repeat;
+    }
+
+    .fullscreen-bg__video {
+        display: none;
+    }
+}

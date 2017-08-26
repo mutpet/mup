@@ -1,0 +1,173 @@
+@import url('//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css');
+/* <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> */
+html, body {
+		overflow-x: hidden;
+		width: 100%;
+		/*height: 100%;*/
+		margin: 0;
+		padding:0;
+		background-image: url("images/myweb_background.png");
+		background-repeat: no-repeat;
+		background-size: cover;
+}
+#con_h1 {
+	position: relative;
+	color: lightgray;
+}
+#con_h2{
+	position: relative;
+	color: lightgray;
+}
+#con_table{
+	margin-left: 38%;
+	font-family: Arial, Helvetica, sans-serif;
+	color: lightgray;
+}
+.addon_td{
+	font-family: Arial, Helvetica, sans-serif; /* Verdana, Geneva, sans-serif; Trebuchet MS’, Helvetica, sans-serif; /*Tahoma, Geneva, sans-serif;  /*Verdana, Geneva, sans-serif; /*Lucida Console’, Monaco, monospace; /* Arial, Helvetica, sans-serif; */
+	font-size: small;
+	color: lightgray;
+	width: 150px;
+}
+.con_text{
+	font-family: Verdana, Geneva, sans-serif; /* Arial, Helvetica, sans-serif; Verdana, Geneva, sans-serif; Trebuchet MS’, Helvetica, sans-serif; /*Tahoma, Geneva, sans-serif;  /*Verdana, Geneva, sans-serif; /*Lucida Console’, Monaco, monospace; /* Arial, Helvetica, sans-serif; */
+	color: lightgray;
+}
+.con_title{
+	font-family: Lucida Console’, Monaco, monospace; /* Arial, Helvetica, sans-serif; Verdana, Geneva, sans-serif; Trebuchet MS’, Helvetica, sans-serif; /*Tahoma, Geneva, sans-serif;  /*Verdana, Geneva, sans-serif; /*Lucida Console’, Monaco, monospace; /* Arial, Helvetica, sans-serif; */
+	color: lightgray;
+}
+.img_size{
+	width: 80px !important;
+	height: 80px !important;
+}
+#yho_img{
+	width: 63px;
+	height: 63px;
+}
+#gm_img{
+	width: 66px;
+	height: 66px;
+}
+#skp_img{
+	width: 69px;
+	height: 69px;
+}
+#tw_img{
+	width: 69px;
+	height: 69px;
+}
+#lin_img{
+	width: 65px;
+	height: 65px;
+}
+#prof_img{
+	width: 61px;
+	height: 61px;
+	border-radius: 5px;
+}
+#cv_img{
+	width: 130px; 
+	height: 70px;
+}
+#map{
+	position: relative;
+	width:600px;
+	height:470px;
+	background:lightgray;
+	border: 12px solid lightgray;
+	opacity: 0.6;
+}
+.map_table{
+	margin-left: 3% !important;
+	
+}
+.map_table td{
+vertical-align: bottom !important;
+}
+
+/* Facebook Like/megosztás gomb pozícionálása */
+.fb-like{
+		text-align: center;
+		padding-top: 11px;
+}
+
+/* Média gombok, és hover animációik: */
+.hide-text{
+	text-indent: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+	display: block;
+}
+
+.ease-all{
+	-webkit-transition: all 400ms ease-in-out;
+	-moz-transition: all 400ms ease-in-out;
+	-o-transition: all 400ms ease-in-out;
+	-ms-transition: all 400ms ease-in-out;
+	transition: all 400ms ease-in-out;
+}
+
+/* Szociál Ikonok */
+
+.social{
+  height: 1rem;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+
+.social td a{
+	display: inline-block;
+	float: left;
+	width: 30px;
+	height: 24px;
+	margin-right: 5px;
+	text-align: center;
+	padding-top: 6px;
+	
+	-webkit-border-radius:20px;
+	-moz-border-radius:20px;
+	-o-border-radius:20px;
+	-ms-border-radius:20px;
+	border-radius:20px;
+	
+	/*background-color: #222;*/
+	-webkit-box-shadow: inset 0 0 0 40px #222;
+	-moz-box-shadow: inset 0 0 0 40px #222;
+	-o-box-shadow: inset 0 0 0 40px #222;
+	-ms-box-shadow: inset 0 0 0 40px #222;
+	box-shadow: inset 0 0 0 40px #222;
+	
+	color: #fff;
+}
+
+.social td a:hover{
+	-webkit-box-shadow: inset 0 0 0 3px #222;
+	-moz-box-shadow: inset 0 0 0 3px #222;
+	-o-box-shadow: inset 0 0 0 3px #222;
+	-ms-box-shadow: inset 0 0 0 3px #222;
+	box-shadow: inset 0 0 0 3px #222;
+	
+	color: #222;
+}
+
+.chip {
+    display: inline-block;
+    padding: 0 25px;
+    height: 40px;
+    font-size: 16px;
+    line-height: 40px;
+    border-radius: 25px;
+    background-color: #f1f1f1;
+}
+
+.chip img {
+    float: left;
+    margin: -4px 6px 0 -25px;
+    height: 50px;
+    width: 51px;
+    border-radius: 50%;	
+}

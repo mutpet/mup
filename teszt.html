@@ -1,0 +1,34 @@
+﻿<html>
+<head>
+<link rel="stylesheet" type="text/css" href="teszt.css">
+<script src="jquery-1.8.3.min.js"></script>
+<script src="teszt.js"></script>
+</head>
+<body>
+<audio controls="true" loop="true" autoplay="true">
+<source src="sting_test.mp3" type="audio/mpeg">
+</audio> 
+<div id="animated_div">
+MuP
+<br>
+<span style="font-size: 10px; font-family: Verdana,sans-serif; line-height: 1.5; text-align: center;">Webdesign</span>
+</div>
+<input type="button" id="gomb" value="teszt" name="gomb" onclick="showMessage('Kapd be a Fa*om!');">
+<p>Ez egy bekezdés!</p>
+
+<div id="teszt">teszt</div>
+<a href='http://api.openweathermap.org/data/2.5/weather?q=Budapest,hu&APPID=071b25b7ea3c60b17e92aa8f7e3e44bf&mode=html'>időjárás</a>
+<aside src="http://api.openweathermap.org/data/2.5/weather?q=Budapest,hu&APPID=071b25b7ea3c60b17e92aa8f7e3e44bf&mode=html"></aside>
+<iframe src="http://api.openweathermap.org/data/2.5/weather?q=Budapest,hu&APPID=071b25b7ea3c60b17e92aa8f7e3e44bf&mode=html" width="140" height="160"></iframe>
+<?
+	$request = 'http://api.openweathermap.org/data/2.5/weather?q=Budapest,hu&APPID=071b25b7ea3c60b17e92aa8f7e3e44bf';
+    $response  = file_get_contents($request);
+    $jsonobj  = json_decode($response);
+    print_r($jsonobj);
+	echo($jsonobj);
+?>
+
+
+
+</body>
+</html>

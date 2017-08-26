@@ -1,0 +1,20 @@
+HTML:
+<div id="teszt"></div>
+<script src="jquery-1.8.3.min.js"></script>
+PHP:
+echo '<script type="text/javascript">
+     showMessage('.$_SESSION["message"].');
+     </script>';
+	 
+JS:
+ $(document).ready(function(){
+
+   $("teszt").hide();
+   });
+function showMessage(message){
+	alert('Meghivodott a függvényem!');
+$("teszt").html(message);
+$("teszt").fadeIn('middle');
+$("teszt").animate({opacity: 1.0}, 2000);
+$("teszt").fadeOut(2000);	
+}	 
