@@ -56,12 +56,13 @@ $(document).ready(function(){
 	
 	//document.getElementById("con_yahoo").style.display = 'none';
 	//document.getElementById("con_gmail").style.display = 'none';
-
-	window.onload = function fade(){
+	
+	/*Ez a Bejelentkező (Login) kis ablakra vonatkozó üzenet elhalványító-eltüntető effekt függvénye. Most egyelőre nincs rá szükség, mert az üzenetek a főoldalon jelennek meg és halványulnak el. (index.js) 
+	window.onload = function fade() {
 		$("#error_msg").fadeIn('middle');
 		$("#error_msg").animate({opacity: 1.0}, 2000);
 		$("#error_msg").fadeOut(2000);	
-	}
+	}*/
 	
  $("#login_gomb").click(function(){ 
 	 window.onunload = refreshParent;
