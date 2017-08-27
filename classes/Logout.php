@@ -37,15 +37,18 @@ class Logout {
 	
 		public static function loggingOut() {
 			
-		//destroy session
+		//destroy session !
 			unset($_SESSION['username']);
-		//unset cookies
-			setcookie('user','',time()-86400);   
+		//unset cookie !
+			setcookie('mup_user','',time()-86400);
+		//logout message	
 			$_SESSION['message'] = "Ön sikeresen kijelentkezett!";
+			$_SESSION['message_class'] = "success";
 			header("location: index.php");
 			exit();
 				
 		}
 		
-}	
+}
+
 ?>	

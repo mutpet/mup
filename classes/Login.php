@@ -210,9 +210,8 @@ class Login {
 						
 	}
 
-/*
 	public static function checkCookie($cookie) {
-		
+			self::$database = MyDatabaseConnection::dataBaseConnect();
 			$query_db_username = self::$database->prepare( "SELECT username FROM user WHERE MD5( username ) = :username ");
 			$query_db_username->bindValue(':username', $cookie);
 			$query_db_username->execute();
@@ -221,8 +220,7 @@ class Login {
 			if($query_db_username->rowCount() == 1) {	
 				$_SESSION['username'] = $result->username;
 			}
-	}
-*/	
+	}	
 	
 }
 

@@ -29,15 +29,15 @@ if(!(class_exists('CheckCookie'))) {
 	include_once 'classes/CheckCookie.php'; 
 }
 */
+
+//TODO: Még viszgálni kell az oldal betöltődésekor, hogy van e a kliens gépen beállított, még élő süti!! Ha van akkor akkor a 'sikeresen bejelentkezett' message nélkül a: $_SESSION['username'] legyen egyenlő a sütibe beállított 'mup_user' indexű tömbelemmel a $_COOKIE szuperglobális tömbből!
+			 //if(!empty($_COOKIE['mup_user'])){ $_SESSION['username'] = $_COOKIE['mup_user']} else {$_SESSION['username'] = ""}
+			 //Login::getCookie();
+
 //Login COOKIE vizsgálata
 if(!empty($_COOKIE['mup_user'])) {
 	
-	//CheckCookie::getCookie($_COOKIE['mup_user']);
-	
-	//$check = new Login();
-	//$check->checkCookie($_COOKIE['mup_user']);
-	
-	//Login::checkCookie($_COOKIE['mup_user']);
+	Login::checkCookie($_COOKIE['mup_user']);
 }
 
 //$tmp = new template("index.html");   A html template fájl az index.html,  a régi, eredeti működés része!
@@ -104,16 +104,6 @@ $script = '<script language="javascript" src="jquery-1.8.3.min.js"></script>
 			  $login_button = '<input id="login_button" type="button" value="'.$login_button_value.'" '.$login_visible.' onclick="openLoginWindow()">'; //Bejelentkezés gomb
 			  $logout_button = '<input id="logout_button" type="button" value="Kilépés" '.$logout_visible.' onclick="logout();">';								//Kijelentkezés gomb
 			  $visitors = countVisitors();																																								//IP cím alapú látogató számláló metódus meghívása
-			  $fb_script = '<script>
-								(function(d, s, id) {
-								var js, fjs = d.getElementsByTagName(s)[0];
-								if (d.getElementById(id)) return;
-								js = d.createElement(s); js.id = id;
-								js.src = "//connect.facebook.net/hu_HU/sdk.js#xfbml=1&version=v2.9";
-								fjs.parentNode.insertBefore(js, fjs);
-								}
-								(document, "script", "facebook-jssdk"));
-								</script>';
 			  
 			  $temp_array = array( 'login_button'=>$login_button, 
 												'logout_button'=>$logout_button, 
@@ -124,13 +114,7 @@ $script = '<script language="javascript" src="jquery-1.8.3.min.js"></script>
 												'message'=>$message,
 												'visitors'=>$visitors,
 												'script'=>$script );
-												//'fb_script'=>$fb_script 
 			  
-			  
-			 //TODO: Még viszgálni kell az oldal betöltődésekor, hogy van e a kliens gépen beállított, még élő süti!! Ha van akkor akkor a 'sikeresen bejelentkezett' message nélkül a: $_SESSION['username'] legyen egyenlő a sütibe beállított 'mup_user' indexű tömbelemmel a $_COOKIE szuperglobális tömbből!
-			 //if(!empty($_COOKIE['mup_user'])){ $_SESSION['username'] = $_COOKIE['mup_user']} else {$_SESSION['username'] = ""}
-			 //Login::getCookie();
-			 
 			 //Itt példányosítom a Translator class-t és adom neki át az aktuális nyelvet és aktuális fájl nevet. Tudom hogy egyértelmű dolgokat nem kommentelünk. Csak a fejlesztés idejére van ide írva, hogy segítsem magamat !!!
 			 if(!empty($_SESSION['languages'])) {
 				 $template_file = 'index.html';
