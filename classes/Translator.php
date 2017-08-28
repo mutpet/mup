@@ -13,6 +13,7 @@ if(!(class_exists('template'))) {
 /**
  * A weboldalon található szöveg elemek lefordítására szolgáló általános osztály definiciója
  *
+ *  ('dictionary' nevű adattáblából a megfelelő rekordok lekérdezése, ás átadása a meghatározott template html felületnek)
  * @author Peter Mutter <mupetya@yahoo.co.uk>
  * @since 2017.08.25
  */
@@ -57,24 +58,32 @@ class Translator {
 			$text_item = '';
 			
 			foreach($text_result as $text) {
-				//$text_item .= $text['text'];
+				//$text_item .= $text['text']; ciklus tesztelése miatt, az összes tömbelem kiiratása
 				$tmp->set($text['text_no'], $text['text']);
 			}
 			
-			// $login_button = '<input id="login_button" type="button" value="Belépés" '.$login_visible.' onclick="openLoginWindow()">';
-			// $logout_button = '<input id="logout_button" type="button" value="Kilépés" '.$logout_visible.' onclick="logout();">';
+			    //Ha a template html fájl az index.html, akkor további html elemek beállítása az index felületére
+			if($template_file == 'index.html') {
+				$tmp->set('login_button', $temp_array['login_button']);
+				$tmp->set('logout_button', $temp_array['logout_button']);
+				$tmp->set('lang_hu', $temp_array['lang_hu']);	
+				$tmp->set('lang_en', $temp_array['lang_en']);
+				$tmp->set('menu_item', $temp_array['menu_item']);
+				$tmp->set('username', $temp_array['username']);
+				$tmp->set('message', $temp_array['message']);
+				$tmp->set('visitors', $temp_array['visitors']);
+				$tmp->set('script', $temp_array['script']);
+				$tmp->set('lang', $this->session['languages']);
+			}else{
+				//általános, állandó html elemek beállítása a megadott html template felületre
+				$tmp->set('lang_hu', $temp_array['lang_hu']);	
+				$tmp->set('lang_en', $temp_array['lang_en']);
+				$tmp->set('menu_item', $temp_array['menu_item']);
+				$tmp->set('script', $temp_array['script']);
+				$tmp->set('lang', $this->session['languages']);
+			}
 			
-			$tmp->set('login_button', $temp_array['login_button']);
-			$tmp->set('logout_button', $temp_array['logout_button']);
-			$tmp->set('lang_hu', $temp_array['lang_hu']);	
-			$tmp->set('lang_en', $temp_array['lang_en']);
-			$tmp->set('menu_item', $temp_array['menu_item']);
-			$tmp->set('username', $temp_array['username']);
-			$tmp->set('message', $temp_array['message']);
-			$tmp->set('visitors', $temp_array['visitors']);
-			$tmp->set('script', $temp_array['script']);
-			$tmp->set('lang', $this->session['languages']);
-
+			//A beállított html elemek átadása a meghatározott HTML (template) fájlnak
 			echo $tmp->get();
 			
 		}

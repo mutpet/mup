@@ -6,6 +6,7 @@
  * Time: 18:16
  */
 session_start();
+//Hiba ellenőrzések beépített függvényei:
 //error_reporting(E_ALL);
 //ini_set('display_errors',1);
 header("Content-Type: text/html; charset=utf-8");
@@ -18,25 +19,12 @@ if(!(class_exists('Translator'))) {
 	include_once 'classes/Translator.php'; 
 }
 
-//Ez még a Süti vizsgálata miatt kelleni fog!
-
 if(!(class_exists('Login'))) {
 	include_once 'classes/Login.php'; 
 }
 
-/*
-if(!(class_exists('CheckCookie'))) {
-	include_once 'classes/CheckCookie.php'; 
-}
-*/
-
-//TODO: Még viszgálni kell az oldal betöltődésekor, hogy van e a kliens gépen beállított, még élő süti!! Ha van akkor akkor a 'sikeresen bejelentkezett' message nélkül a: $_SESSION['username'] legyen egyenlő a sütibe beállított 'mup_user' indexű tömbelemmel a $_COOKIE szuperglobális tömbből!
-			 //if(!empty($_COOKIE['mup_user'])){ $_SESSION['username'] = $_COOKIE['mup_user']} else {$_SESSION['username'] = ""}
-			 //Login::getCookie();
-
-//Login COOKIE vizsgálata
-if(!empty($_COOKIE['mup_user'])) {
-	
+//Login COOKIE (süti) vizsgálata
+if(!empty($_COOKIE['mup_user'])) {	
 	Login::checkCookie($_COOKIE['mup_user']);
 }
 
@@ -94,8 +82,8 @@ $script = '<script language="javascript" src="jquery-1.8.3.min.js"></script>
 				  $login_visible = '';
 				  $logout_visible = 'style="display:none;';
 			  }
-			  
-			  $message = '';
+			   //(Rendszer)Üzenetek megjelenítése az index Főoldalon egy új <div> tag -ben.
+			   $message = '';
 			  if (!empty($_SESSION['message'])) {
 				  $message = "<div id='error_msg' class='".$_SESSION['message_class']."'>".$_SESSION['message']."</div>";
 				  unset($_SESSION['message']);
