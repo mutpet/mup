@@ -55,7 +55,7 @@ class Translator {
 			$translate_query->bindValue(':filename', $this->filename);
 			$translate_query->execute();
 			$text_result = $translate_query->fetchAll();
-			$text_item = '';
+		//	$text_item = '';
 			
 			foreach($text_result as $text) {
 				//$text_item .= $text['text']; ciklus tesztelése miatt, az összes tömbelem kiiratása
@@ -68,8 +68,16 @@ class Translator {
 				$tmp->set('logout_button', $temp_array['logout_button']);
 				$tmp->set('lang_hu', $temp_array['lang_hu']);	
 				$tmp->set('lang_en', $temp_array['lang_en']);
+				$tmp->set('login_info_style', $temp_array['login_info_style']);
 				$tmp->set('menu_item', $temp_array['menu_item']);
-				$tmp->set('username', $temp_array['username']);
+			//	$tmp->set('username', $temp_array['username']);
+				$tmp->set('prefix', $temp_array['prefix']);
+				$tmp->set('login_info', $temp_array['login_info']);
+			if(!empty($this->session['username'])) {	
+				$tmp->set('username', $this->session['username']);
+			}else{
+				$tmp->set('username', '');
+			}
 				$tmp->set('message', $temp_array['message']);
 				$tmp->set('visitors', $temp_array['visitors']);
 				$tmp->set('script', $temp_array['script']);

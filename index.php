@@ -45,6 +45,7 @@ $script = '<script language="javascript" src="jquery-1.8.3.min.js"></script>
 			 $lang_hu = '<img src="images/lang_hu.png"/>';
 			 $login_button_value = "Belépés";
 			 $logout_button_value = "Kilépés";
+			 $prefix_username = 'Tisztelt ';
 			
 			  //SESSION beállítása a kiválasztott nyelvre
 			  if (!empty($_GET["lang"])) { 
@@ -53,7 +54,10 @@ $script = '<script language="javascript" src="jquery-1.8.3.min.js"></script>
 			  
 			  //Ha a user által kiválasztott nyelv a Magyar:
 			  if ($_SESSION['languages'] == "_hu") {
-				  //include (@"lang/hu.php"); 			  
+				  //include (@"lang/hu.php");
+				  $login_text = "Bejelentkezve: ";
+				  $default_logout_text = "Ön nincs bejelentkezve!";
+				  $prefix_username = 'Tisztelt ';
 				  $aktualis_nyelv = "_hu"; 
 				  $login_button_value = "Belépés";
 				  $logout_button_value = "Kilépés";
@@ -64,6 +68,9 @@ $script = '<script language="javascript" src="jquery-1.8.3.min.js"></script>
 				//Ha a user által kiválasztott nyelv az Angol:
 			  if ($_SESSION['languages'] == "_en") {
 				  //include (@"lang/en.php");
+				  $login_text = "Logged in as: ";
+				  $default_logout_text = "You are not logged in!";
+				  $prefix_username = 'Dear ';
 				  $aktualis_nyelv = "_en";
 				  $login_button_value = "Login";
 				  $logout_button_value = "Logout";
@@ -71,14 +78,17 @@ $script = '<script language="javascript" src="jquery-1.8.3.min.js"></script>
 				  $lang_hu = '<a class="nyelvkep" href="'.basename($_SERVER["PHP_SELF"]).'?lang=_hu"><img id="lang_item" onMouseOver="this.style.opacity=1; this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4; this.filters.alpha.opacity=40"src="images/lang_hu.png"/></a>';
 				}
 				
-				//Sikeres bejelentkezés után a már beállított SESSION['username'] megjelenítése a felületen. A látogató a felhasználó nevével való Üdvözlése
-				$username = '';
+				//Sikeres bejelentkezés után a már beállított SESSION['username'] megjelenítése a felületen, a menüsorban, és a látogató a felhasználó nevével való Üdvözlése.
 			  if (!empty($_SESSION['username'])) {
-				  $username = 'Tisztelt '.$_SESSION['username'].' ! ';
+				  $prefix = $prefix_username;
+				  $login_info_style = '<div class="login_container">';
+				  $login_info = $login_text;
 				  $login_visible = 'style="display:none;"';
 				  $logout_visible = '';
 			  }else{
-				  $username ='';
+				  $prefix ='';
+				  $login_info_style = '<div class="logout_default_container">';
+				  $login_info = $default_logout_text;
 				  $login_visible = '';
 				  $logout_visible = 'style="display:none;';
 			  }
@@ -98,7 +108,9 @@ $script = '<script language="javascript" src="jquery-1.8.3.min.js"></script>
 												'lang_hu'=>$lang_hu, 
 												'lang_en'=>$lang_en, 
 												'menu_item'=>$menu_item,
-												'username'=>$username,
+												'login_info' =>$login_info,
+												'login_info_style' =>$login_info_style,
+												'prefix'=>$prefix,
 												'message'=>$message,
 												'visitors'=>$visitors,
 												'script'=>$script );
