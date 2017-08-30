@@ -99,6 +99,9 @@ class Login {
 				throw new \Exception('A bejelentkezéshez, kérem erősítse meg regisztrációját a postafiokjába küldött automatikus e-mailben található link segítségével! Majd próbálja meg újra a bejelentkezést! / The user is not confirmed yet! Please try again!');
 			}
 			
+			if(empty($this->request['rememberme'])) {
+				$this->request['rememberme'] = '';
+			}
 			
 			self::rememberMe($this->request['rememberme']);
 			
@@ -113,7 +116,7 @@ class Login {
 			
 			if(!empty($_SESSION['username'])) {
 				
-					//var_dump($_COOKIE);	
+					//var_dump($_COOKIE);
 					$_SESSION['message'] = "Ön sikeresen bejelentkezett!";
 					$_SESSION['message_class'] = "success";
 					
