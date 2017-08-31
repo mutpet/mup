@@ -133,6 +133,12 @@ padding-right: 0.3%;
     background-color: #8c8c8c;
 }
 .logout_default_container{
+	
+background-image: url("images/messages/logout.png");
+background-repeat: no-repeat;
+background-attachment: scroll;
+background-position: 2px 5px;
+	
 display: inline;	
 width: 65px;
 height: 13px;
@@ -144,8 +150,10 @@ border-width: 3px;
 border-style: solid;
 border-radius: 5px;
 border-color: #608000;
-padding: 3px;
-padding-right: 20px;
+padding: 7px;
+valign: center;
+padding-left: 25px;
+padding-right: 10px;
 }
 .login_container{
 display: inline;	
