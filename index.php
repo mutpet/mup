@@ -81,13 +81,13 @@ $script = '<script language="javascript" src="jquery-1.8.3.min.js"></script>
 				//Sikeres bejelentkezés után a már beállított SESSION['username'] megjelenítése a felületen, a menüsorban, és a látogató a felhasználó nevével való Üdvözlése.
 			  if (!empty($_SESSION['username'])) {
 				  $prefix = $prefix_username;
-				  $login_info_style = '<div class="login_container">';
+				  $login_info_style = '<div class="login_container"><img id="login_img" src="images/login/login.png">';
 				  $login_info = $login_text;
 				  $login_visible = 'style="display:none;"';
 				  $logout_visible = '';
 			  }else{
 				  $prefix ='';
-				  $login_info_style = '<div class="logout_default_container">';
+				  $login_info_style = '<div class="logout_default_container"><img id="logout_default_flash_img" src="images/login/logout.png">';
 				  $login_info = $default_logout_text;
 				  $login_visible = '';
 				  $logout_visible = 'style="display:none;';

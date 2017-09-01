@@ -1,8 +1,8 @@
 function openLoginWindow(){
-	loginWindow = window.open("bejelentkezes.php", "Bejelentkezés", "width=690, height=600, status=no, menubar=no, scrollbar=no, resizable=no, toolbar=no, location=no" );
+	loginWindow = window.open("bejelentkezes.php", "Bejelentkezés", "width=750, height=600, status=no, menubar=no, scrollbar=no, resizable=no, toolbar=no, location=no" );
 	loginWindow.onresize = function() {
 		
-		loginWindow.resizeTo(690,600);
+		loginWindow.resizeTo(750,600);
 	}
     loginWindow.focus();
 }
