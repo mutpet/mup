@@ -1,5 +1,12 @@
 @import url('//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css');
 /* <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> */
+
+/*
+KI KELL JAVÍTANI!:
+a 41 sorban a fő heading -be be kell másolni a body -ban lévő text-align-t, és text-re vonatkozó dolgokat, lehet margin -eket is, a body -ból majd ezeket ki kell keszedni!
+48., 51. sorban lévő heading -ekbe is kellenek a text és elhelyezési tulajdonságok!
+majd kelleni fog az 54. sorban lévő clockdiv -be is! A lábléc képeinek pozíciói és betűtipusa rendbejön. Viszont maga a számláló óra pont mértanilag középre kerül a html-en ami nem teljesen jó, azt még reszelni kell majd!!
+*/
 body {
      background: url("images/4.jpg");
 	 background-attachment: fixed;

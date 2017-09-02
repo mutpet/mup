@@ -100,7 +100,7 @@ $script = '<script language="javascript" src="jquery-1.8.3.min.js"></script>
 			  }
 			  //A template html -nek átadandó állandó elemek deklarálása
 			  $login_button = '<input id="login_button" type="button" value="'.$login_button_value.'" '.$login_visible.' onclick="openLoginWindow()">'; //Bejelentkezés gomb
-			  $logout_button = '<input id="logout_button" type="button" value="Kilépés" '.$logout_visible.' onclick="logout();">';								//Kijelentkezés gomb
+			  $logout_button = '<input id="logout_button" type="button" value="'.$logout_button_value.'" '.$logout_visible.' onclick="logout();">';								//Kijelentkezés gomb
 			  $visitors = countVisitors();																																								//IP cím alapú látogató számláló metódus meghívása
 			  
 			  $temp_array = array( 'login_button'=>$login_button, 

@@ -23,7 +23,7 @@ type="video/mp4">
 </div>
 
 <div class="fejlec vkozepre">
-<a href="asdadsasd">Gyártói minősítések</a>
+<a href="index.php">Vissza</a>
 <a href="">Referencia</a>
 <!-- <a href="">Adataim</a> -->
 </div>
@@ -46,16 +46,21 @@ type="video/mp4">
 </div>
 -->
 
-
+<div id="lang_div">
+  <(lang_hu)><(lang_en)>
+</div>
 
 <div id="fb-root"></div>
-
+<!-- Facebook Like gomb szkriptje  -->
 <script>
+var lang = '<(lang)>';
+var fb_lang = lang.substring(1, lang.length) + lang.toUpperCase();
+
  (function(d, s, id) {
 	  var js, fjs = d.getElementsByTagName(s)[0];
 	  if (d.getElementById(id)) return;
 	  js = d.createElement(s); js.id = id;
-	  js.src = "//connect.facebook.net/hu_HU/sdk.js#xfbml=1&version=v2.9";
+	  js.src = "//connect.facebook.net/"+fb_lang+"/sdk.js#xfbml=1&version=v2.9";
 	  fjs.parentNode.insertBefore(js, fjs);
 	}
 	

@@ -174,7 +174,7 @@ body {
   -moz-animation: slide_image 6.5s linear infinite 0s;
   -webkit-animation: slide_image 6.5s linear infinite 0s;*/
 }
-	
+/* EZ A BAJA ETTŐL CSÚSZIK EL A TÖBBI <img> kép!! EZ CSINÁLJA AZ ÁTFEDÉST opacity!  Meg kell próbálni az összes gallery-ben lévő <img> -ét egyesével class-ba rakni! Ezt a tulajdonság meg legyen: .classnév. img{ ÉS 365. sorban is át kell írni!*/	
 img {
   position: absolute;
   transition: opacity 3.3s ease-in;

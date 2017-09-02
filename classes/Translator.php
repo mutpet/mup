@@ -73,21 +73,35 @@ class Translator {
 			//	$tmp->set('username', $temp_array['username']);
 				$tmp->set('prefix', $temp_array['prefix']);
 				$tmp->set('login_info', $temp_array['login_info']);
-			if(!empty($this->session['username'])) {	
-				$tmp->set('username', $this->session['username']);
-			}else{
-				$tmp->set('username', '');
-			}
+				if(!empty($this->session['username'])) {	
+					$tmp->set('username', $this->session['username']);
+				}else{
+					$tmp->set('username', '');
+				}
 				$tmp->set('message', $temp_array['message']);
 				$tmp->set('visitors', $temp_array['visitors']);
 				$tmp->set('script', $temp_array['script']);
 				$tmp->set('lang', $this->session['languages']);
-			}else{
-				//általános, állandó html elemek beállítása a megadott html template felületre
+			}elseif($template_file == 'service.html') {	
 				$tmp->set('lang_hu', $temp_array['lang_hu']);	
 				$tmp->set('lang_en', $temp_array['lang_en']);
+				$tmp->set('script', $temp_array['script']);
+				$tmp->set('lang', $this->session['languages']);
+			}else{
+				//általános, állandó html elemek beállítása a megadott html template felületre
+				$tmp->set('login_button', $temp_array['login_button']);
+				$tmp->set('logout_button', $temp_array['logout_button']);
+				$tmp->set('lang_hu', $temp_array['lang_hu']);	
+				$tmp->set('lang_en', $temp_array['lang_en']);
+				$tmp->set('login_info_style', $temp_array['login_info_style']);
+				$tmp->set('login_info', $temp_array['login_info']);
 				$tmp->set('menu_item', $temp_array['menu_item']);
 				$tmp->set('script', $temp_array['script']);
+				if(!empty($this->session['username'])) {	
+					$tmp->set('username', $this->session['username']);
+				}else{
+				$tmp->set('username', '');
+				}
 				$tmp->set('lang', $this->session['languages']);
 			}
 			
