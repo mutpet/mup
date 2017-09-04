@@ -1,15 +1,26 @@
 function openLoginWindow(){
-	loginWindow = window.open("bejelentkezes.php", "Bejelentkezés", "width=750, height=600, status=no, menubar=no, scrollbar=no, resizable=no, toolbar=no, location=no" );
+	loginWindow = window.open("bejelentkezes.php", "Bejelentkezés/Login", "width=750, height=600, status=no, menubar=no, scrollbar=no, resizable=no, toolbar=no, location=no" );
 	loginWindow.onresize = function() {
 		
 		loginWindow.resizeTo(750,600);
 	}
     loginWindow.focus();
 }
+
+function openForgotPasswordWindow(){
+	forgotWindow = window.open("forgotpassword.php", "Elfelejtett jelszó/Forgot Password", "width=750, height=600, status=no, menubar=no, scrollbar=no, resizable=no, toolbar=no, location=no" );
+	forgotWindow.onresize = function() {
+		
+		forgotWindow.resizeTo(400,300);
+	}
+    forgotWindow.focus();
+}
+
 function closeLoginWindow(){
 	loginWindow = window.close();
 	window.opener.location.reload();	
 }
+
 function openRegWindow(){
 	regWindow = window.open("registration_form.php", "Regisztráció", "width=690, height=580, status=no, menubar=no, scrollbar=no, resizable=no, toolbar=no, location=no" );
 	regWindow.onresize = function() {
@@ -18,6 +29,7 @@ function openRegWindow(){
 	}
     regWindow.focus();
 }
+
 function closeRegWindow(){
 	regWindow = window.close();
 	window.opener.location.reload();

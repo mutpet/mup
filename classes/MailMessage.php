@@ -88,6 +88,32 @@ class MailMessage {
 	return $temp_regnotice->get(); 
 
 	}
+	
+	public static function dataForResetPasswordMail($email, $url) {
+		
+		$temp_confirm = new template("mail_template.html");
+		$header_title = 'Regisztráció aktiválása / Activate registration:';
+		$regverify_message_hu  = '<p>Kedves ' . $letter_name . '!</p>Köszönöm, hogy regisztrált weboldalamra!<br>Kérem, hogy az alábbi linkre való kattintással hagyja jóvá regisztrációját:</br>';
+		$regverify_url_hu = '<p><a href="registration_verify.php?id=' . $last_id . '&code=' . $confirm_code . '">Regisztráció megerősítése</a></p>';
+		$signature_hu = 'Üdvözlettel!<br>Mutter Péter</br><p></p><p></p><hr>';
+		$regverify_message_en = '<p>Dear ' . $letter_name . '!</p>Thank you for registering at my website!<br>To activate your account, please click the link below:</br>';
+		$regverify_url_en = '<p><a href="registration_verify.php?id=' . $last_id . '&code=' . $confirm_code . '">Confirmation of registration</a></p>';
+		$signature_en = 'Regards!<br>Peter Mutter</br>';
+		
+		$temp_confirm->set('header_title', $header_title);
+		$temp_confirm->set('regverify_message_hu', $regverify_message_hu);
+		$temp_confirm->set('regverify_url_hu', $regverify_url_hu);
+		$temp_confirm->set('signature_hu', $signature_hu);
+		$temp_confirm->set('regverify_message_en', $regverify_message_en);
+		$temp_confirm->set('regverify_url_en', $regverify_url_en);
+		$temp_confirm->set('signature_en', $signature_en);
+		
+		//$forward_address = $this->createConfirmMail($address);
+		
+	return $temp_confirm->get();
+		
+		
+	}
 
 	public function createRegistrationNoticeMail($result) {
 		

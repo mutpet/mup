@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Bejelentkezés</title>
+	<title>Bejelentkezés/Login</title>
 	<link rel="stylesheet" type="text/css" href="bejelentkezes.css">
 	
 	<!--<script src="jquery-1.8.3.min.js"></script>-->
@@ -39,7 +39,7 @@
 		<tr>
 			<td>
 				<div class="forgotten_pw_container">
-					<a  id="forgotten_pw_url" href="">Elfelejtette jelszavát<img id="question_mark_img" src="images/login/question_mark.png" height="19px"></a>
+					<a  id="forgotten_pw_url" href="#" onclick="openForgotPasswordWindow();">Elfelejtette jelszavát<img id="question_mark_img" src="images/login/question_mark.png" height="19px"></a>
 				</div>
 			</td>
 		</tr>
