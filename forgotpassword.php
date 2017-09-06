@@ -30,7 +30,7 @@ if(!(class_exists('ForgotPassword'))) {
 
 if(!empty($_REQUEST)) {
 $forgot_pw = new ForgotPassword($_REQUEST);
-$forgot_pw->validateEmail();
+$forgot_pw->createVerifyCode();
 //$forgot_pw->();
 }
 

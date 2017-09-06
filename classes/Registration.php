@@ -109,7 +109,7 @@ class Registration {
 				$last_id = self::$database->lastInsertId();
 				$reg_sql = self::$database->commit();
 				}
-		catch(Exception $e) {
+		catch(\Exception $e) {
 				$reg_sql = self::$database->rollback();
 				exit('Sikertelen regisztráció! A regisztráció nem jött létre. A művelet visszavonásra került. Kérem próbálja újra! / Registration failed! Registration was not created. The operation was canceled. Please try again!' .$e->getMessage());
 				}			

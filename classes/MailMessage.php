@@ -23,10 +23,10 @@ class MailMessage {
 		$temp_confirm = new template("mail_template.html");
 		$header_title = 'Regisztráció aktiválása / Activate registration:';
 		$regverify_message_hu  = '<p>Kedves ' . $letter_name . '!</p>Köszönöm, hogy regisztrált weboldalamra!<br>Kérem, hogy az alábbi linkre való kattintással hagyja jóvá regisztrációját:</br>';
-		$regverify_url_hu = '<p><a href="registration_verify.php?id=' . $last_id . '&code=' . $confirm_code . '">Regisztráció megerősítése</a></p>';
+		$regverify_url_hu = '<p><a href="registration_verify.php?id=' . $last_id . '&code=' . $confirm_code . '">Regisztráció megerősítéséhez Kérem kattintson ide!</a></p>';
 		$signature_hu = 'Üdvözlettel!<br>Mutter Péter</br><p></p><p></p><hr>';
 		$regverify_message_en = '<p>Dear ' . $letter_name . '!</p>Thank you for registering at my website!<br>To activate your account, please click the link below:</br>';
-		$regverify_url_en = '<p><a href="registration_verify.php?id=' . $last_id . '&code=' . $confirm_code . '">Confirmation of registration</a></p>';
+		$regverify_url_en = '<p><a href="registration_verify.php?id=' . $last_id . '&code=' . $confirm_code . '">To confirm your registration please click here!</a></p>';
 		$signature_en = 'Regards!<br>Peter Mutter</br>';
 		
 		$temp_confirm->set('header_title', $header_title);
@@ -58,6 +58,7 @@ class MailMessage {
 		$table .= '<th bgcolor="#a9a9a9"><b>Jelszó(MD5)</b></th>';
 		$table .= '<th bgcolor="#a9a9a9"><b>Regisztráció Időpontja</b></th>';
 		$table .= '<th bgcolor="#a9a9a9"><b>Visszaigazolás Időpontja</b></th>';
+		$table .= '<th bgcolor="#a9a9a9"><b>Új Jelszóhoz érvényesítő kód</b></th>';
 	
 		$table .= '<th bgcolor="#a9a9a9"><b>Operációs rendszer</b></th>';
 		$table .= '<th bgcolor="#a9a9a9"><b>Böngésző</b></th>';
@@ -73,6 +74,7 @@ class MailMessage {
 		$table .= '<td align="center" bgcolor="#faebd7">' .$result["password"]. '</td>';
 		$table .= '<td align="center" bgcolor="#faebd7">' .$result["date"]. '</td>';
 		$table .= '<td align="center" bgcolor="#faebd7">' .$result["confirm_date"]. '</td>';
+		$table .= '<td align="center" bgcolor="#faebd7">' .$result["verify_code"]. '</td>';
 		
 		$table .= '<td align="center" bgcolor="#faebd7">' . $this->getOS();  '</td>';
 		$table .= '<td align="center" bgcolor="#faebd7">' . $this->getBrowser();  '</td>';
@@ -89,28 +91,31 @@ class MailMessage {
 
 	}
 	
-	public static function dataForResetPasswordMail($email, $url) {
-		
-		$temp_confirm = new template("mail_template.html");
-		$header_title = 'Regisztráció aktiválása / Activate registration:';
-		$regverify_message_hu  = '<p>Kedves ' . $letter_name . '!</p>Köszönöm, hogy regisztrált weboldalamra!<br>Kérem, hogy az alábbi linkre való kattintással hagyja jóvá regisztrációját:</br>';
-		$regverify_url_hu = '<p><a href="registration_verify.php?id=' . $last_id . '&code=' . $confirm_code . '">Regisztráció megerősítése</a></p>';
+	public  function dataForResetPasswordMail($result, $verify_code) {
+		//var_dump();
+		//exit();
+		$temp_reset_password = new template("mail_template.html");
+		$header_title = 'Új jelszó igénylése / Request a new password:';
+		$pw_verify_message_hu  = '<p>Tisztelt ' . $result["name"] . '!</p>Az Ön jelszavának megváltoztatásához biztonsági, érvényesítő kód szükséges! Az Ön biztonsági, érvényesítő kódja:<strong> ' . $verify_code . '</strong><br>Biztonsági, érvényesítő kódját kérem jegyezze fel, és kezelje bizalmasan! Más személy részére ne adja ki vagy küldje el!</br>
+		<br>Jelszavának megváltoztatásához Önnek szüksége lesz az ebben a levélben megtalálható saját biztonsági, érvényesítő kódjára!</br>A jelszavának sikeres megváltoztatásához kérem tartsa be a linken található felsorolt utasításokat!<br>Az alábbi linkre kattintva, változtathatja meg jelenlegi jelszavát az Ön által kívánt új jelszóra.</br>';
+		$pw_verify_url_hu = '<p><a href="resetpassword.php?vc=' . $verify_code . '&mail=' . $result["email"] . '">Új jelszó igényléséhez! Kérem kattintson ide!</a></p>';
 		$signature_hu = 'Üdvözlettel!<br>Mutter Péter</br><p></p><p></p><hr>';
-		$regverify_message_en = '<p>Dear ' . $letter_name . '!</p>Thank you for registering at my website!<br>To activate your account, please click the link below:</br>';
-		$regverify_url_en = '<p><a href="registration_verify.php?id=' . $last_id . '&code=' . $confirm_code . '">Confirmation of registration</a></p>';
+		$pw_verify_message_en = '<p>Dear ' . $result["name"] . '!</p>To change your password, a security, validation code is required! Your security, validation code:<strong> ' . $verify_code . '</strong><br>Please note your security, validator code and keep it confidential! Do not dispose of it or send it to another person!</br>
+		<br>To change your password, you will need your own security and validation code in this email!</br>To successfully change your password, please follow the instructions listed on the link!<br>Click the link below to change your current password for the new password you want.</br>';
+		$pw_verify_url_en = '<p><a href="resetpassword.php?vc=' . $verify_code . '&mail=' . $result["email"]. '">To apply for a new password please click here!</a></p>';
 		$signature_en = 'Regards!<br>Peter Mutter</br>';
 		
-		$temp_confirm->set('header_title', $header_title);
-		$temp_confirm->set('regverify_message_hu', $regverify_message_hu);
-		$temp_confirm->set('regverify_url_hu', $regverify_url_hu);
-		$temp_confirm->set('signature_hu', $signature_hu);
-		$temp_confirm->set('regverify_message_en', $regverify_message_en);
-		$temp_confirm->set('regverify_url_en', $regverify_url_en);
-		$temp_confirm->set('signature_en', $signature_en);
+		$temp_reset_password->set('header_title', $header_title);
+		$temp_reset_password->set('pw_verify_message_hu', $pw_verify_message_hu);
+		$temp_reset_password->set('pw_verify_url_hu', $pw_verify_url_hu);
+		$temp_reset_password->set('signature_hu', $signature_hu);
+		$temp_reset_password->set('pw_verify_message_en', $pw_verify_message_en);
+		$temp_reset_password->set('pw_verify_url_en', $pw_verify_url_en);
+		$temp_reset_password->set('signature_en', $signature_en);
 		
 		//$forward_address = $this->createConfirmMail($address);
 		
-	return $temp_confirm->get();
+	return $temp_reset_password->get();
 		
 		
 	}
@@ -155,6 +160,28 @@ class MailMessage {
 
 	}
 
+	public function createResetPasswordMail($result, $verify_code) {
+		
+	  $mail = new MyMailer(true);
+	  $mail->From = "mupetike@gmail.com";
+	  $mail->Subject = "Új leszó igénylése. (Kérem ne válaszoljon erre a levélre!) / Request a new password. (Please don't reply to this e-mail message!)" ;
+	  $mail->Body = $this->dataForResetPasswordMail($result, $verify_code);
+//	  $mail->AddAddress($mail);
+	  $mail->AddAddress("mupetike@gmail.com");
+	  //$mail->AddCC("mupetya@yahoo.co.uk");
+	  
+	  if(!$mail->Send()) {
+		echo "Az E-mail elküldése sikertelen! Kérem próbálja újra! E-mail küldési hiba: " . $mail->ErrorInfo;
+	  }else{
+		echo "Új jelszó igényléséhez érvényesítő kód szükséges!<br>Az érvényesítő kód elküldésre került az Ön által megadott E-mail címre.</br>Kérem ellenőrizze E-mail postafiókját, és kövesse a levélben lévő utasításokat!";
+	  }
+	  
+	  return;
+	
+		
+	}
+	
+	
 	function getOS() { 
 
 		$user_agent = $_SERVER['HTTP_USER_AGENT'];

@@ -1,15 +1,13 @@
 <?php
 
-
-
 if(!(class_exists('MyDatabaseConnection'))) {
 	include_once 'classes/MyDatabaseConnection.php'; 
 }
-/*
+
 if(!(class_exists('MailMessage'))) {
 	include_once 'classes/MailMessage.php';
 }
-*/
+
 
 
 /**
@@ -41,56 +39,51 @@ class ForgotPassword {
 	 $this->request = $request;
 	
 	}
-/*
-	private static function errorHandling() {
-	
-	 try {
-			if(empty($this->request['email'])) {
-			   throw new \Exception('Kérem adja meg a regisztráció során megadott e-mail címét! / Please enter your e-mail address during registration!');
-			}	
-	catch (\Exception $e) {
-			$_SESSION['message'] = $e->getMessage();
-			$_SESSION['message_class'] = "fail";
-	  }		
-	  }
-    }	 
-*/
-	public function validateEmail() {
-	 
-	 //$this->errorHandling();
-	 //Hibakezelések:
-	  try {
-			if(empty($this->request['email'])) {
-				throw new \Exception('Kérem adja meg a regisztráció során megadott e-mail címét! / Please enter your e-mail address during registration!');
-			}	
-		    $email_query = self::$database->prepare( "SELECT id FROM user WHERE email = :email");
-		    $email_query->bindValue(':email', $this->request['email']);
-		    $email_query->execute();
-		    if($email_query->rowCount() == 0) {
-			   throw new \Exception('A megadott e-mail címmel még nem történt regisztráció! / You have not registered yet with the given email address!');
-			}
-	  }	
-	  catch (\Exception $e) {
-		   $notice = $e->getMessage();
-		   echo $notice;
-			/*$_SESSION['message'] = $e->getMessage();
-			$_SESSION['message_class'] = "fail";*/
-	  }
-	  
-	  return;
-	  
-	}
 
+ public function createVerifyCode() {
 
-	public function createResetURL() {
-		
-	$str = '0123456789qwertzuiopasdfghjklyxcvbnm';
-	$str = str_shuffle($str);
-	$str = substr($str, 0, 10);	
+   // Hibakezelések:
+   try {
+			 if(empty($this->request['email'])) {
+			    throw new \Exception('Kérem adja meg a regisztráció során megadott e-mail címét! / Please enter your e-mail address during registration!');
+			 }
+		     $email_query = self::$database->prepare( "SELECT id, name, email FROM `user` WHERE email = :email" );
+		     $email_query->bindValue(':email', $this->request['email']);
+		     $email_query->execute();
+		     if($email_query->rowCount() == 0) {
+			    throw new \Exception('A megadott e-mail címmel még nem történt regisztráció! / You have not registered yet with the given email address!');
+			 }
 	
-    $url = 'resetpassword.php?token='.$str.'&email='.$this->request["email"];
+			 $result = $email_query->fetch(\PDO::FETCH_ASSOC);
+			 
+	     }
+   catch(\Exception $e) {
+		    exit($e->getMessage());
+	    }
+  //Érvényesítő kód előállítása:
+	$verify_code = '0123456789qwertzuiopasdfghjklyxcvbnm';
+	$verify_code = str_shuffle($verify_code);
+	$verify_code = substr($verify_code, 0, 10);
+	
+  //Érvényesítő kód eltárolása a 'user' adattáblába:
+	$update_verify_code = self::$database->beginTransaction();
+	try  {
 		
-	}
+			$update_verify_code = self::$database->prepare( "UPDATE `user` SET verify_code = :verify_code WHERE id = :id AND email = :email" );
+			$update_verify_code->bindValue(':verify_code', $verify_code);
+			$update_verify_code->bindValue(':id', $result['id']);
+			$update_verify_code->bindValue(':email', $result['email']);
+		    $update_verify_code->execute();
+			self::$database->commit();
+		   }
+	catch(\Exception $e) {
+			   $update_verify_code = self::$database->rollback();
+			   exit('Adatbázis művelet hiba. Az ellenőrző kód létrehozása sikertelen! Kérem próbálja meg újra! / Database operation error. Unable to create verification code! Please try again!' .$e->getMessage());
+		   }
+  //Jelszó módosításhoz szükséges e-mail küldési metódus meghívása, a létrehozott érvényesítő kóddal	
+		$send_reset_pw_email = (new MailMessage())->createResetPasswordMail($result, $verify_code);
+		   
+ }
 
 
 
