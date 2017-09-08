@@ -26,10 +26,10 @@
 		<tr>
 			<td><input type="password" name="jelszo" class="passInput"></td>
 		</tr>
-			<tr>
+		<tr>
 			<td>&nbsp</td>
-			</tr>
-			<tr>
+		</tr>
+		<tr>
 			<td><input type="submit" id="login_gomb" name="login_gomb" value="Belépés"></td>
 			<td><input type="button" id="cancel_gomb" name="cancel_gomb" value="Mégse" onclick="closeLoginWindow()"></td>
 		</tr>

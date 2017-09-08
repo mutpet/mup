@@ -70,7 +70,7 @@ class Registration {
 					throw new \Exception('A regisztrációhoz kérem erősítse meg jelszavát! / Please re-enter your password to register!');
 				}
 				
-				if(strlen($this->request['password']  < 6)) {
+				if(strlen($this->request['password']) < 6 ) {
 					throw new \Exception('A jelszónak legalább 6 karakter hosszúnak kell lennie! / The password must be at least 6 characters long!');
 				}
 				

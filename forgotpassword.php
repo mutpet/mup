@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Bejelentkezés/Login</title>
+	<title>Új jelszó igénylése/Request a new password</title>
 	<!--<link rel="stylesheet" type="text/css" href="forgotpassword.css">-->
 	<!--<script src="jquery-1.8.3.min.js"></script>-->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -12,7 +12,7 @@
 <h1>Új jelszó igénylése</h1>
 <form method="post" action="forgotpassword.php">
 <input type="text" name="email" placeholder="E-mail cím">
-<input type="submit" id="login_gomb" name="forgotPassSubmit" value="Küldés">
+<input type="submit" id="forgotPassSubmit" name="forgotPassSubmit" value="Küldés">
 </form>
 
 </body>
