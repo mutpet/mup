@@ -8,10 +8,10 @@ function openLoginWindow(){
 }
 
 function openForgotPasswordWindow(){
-	forgotWindow = window.open("forgotpassword.php", "Elfelejtett jelszó/Forgot Password", "width=750, height=600, status=no, menubar=no, scrollbar=no, resizable=no, toolbar=no, location=no" );
+	forgotWindow = window.open("forgotpassword.php", "Elfelejtett jelszó/Forgot Password", "width=450, height=500, status=no, menubar=no, scrollbar=no, resizable=no, toolbar=no, location=no" );
 	forgotWindow.onresize = function() {
 		
-		forgotWindow.resizeTo(400,300);
+		forgotWindow.resizeTo(450,500);
 	}
     forgotWindow.focus();
 }

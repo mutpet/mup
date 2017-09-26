@@ -2,7 +2,8 @@
 <html>
 <head>
 	<title>Új jelszó igénylése/Request a new password</title>
-	<!--<link rel="stylesheet" type="text/css" href="forgotpassword.css">-->
+	<link rel="stylesheet" type="text/css" href="forgotpassword.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 	<!--<script src="jquery-1.8.3.min.js"></script>-->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="main.js"></script>
@@ -10,9 +11,21 @@
 
 <body>
 <h1>Új jelszó igénylése</h1>
+<p>
+<div class="notice_container">
+<img class="pw_warning" src="images/warnings/red_warning.png" />
+Figyelem!<br>Új jelszó igényléséhez a regisztrációkor megadott e-mail címére lesz szüksége. Az Ön által megadott e-mail címre a: "Küldés" feliratú gomb megnyomásakor elküldésre kerül az Új jelszóhoz szükséges érvényesítő kód. Az Ön e-mail címére érkező e-mail fogja tartalmazni az új jelszóhoz szükséges érvényesítő kódot.
+Kérem ellenőrizze postafiókját, és kövesse az e-mailben található utasításokat!
+Érvényesítő kódját kezelje bizalmasan! Másik fél számára ne továbbítsa!   
+</div>
+</p>
+<div class="container">
+Kérem adja meg a regisztráció során megadott e-mail címét, majd nyomja meg a: 'Küldés' gombot!
+</div>
 <form method="post" action="forgotpassword.php">
-<input type="text" name="email" placeholder="E-mail cím">
-<input type="submit" id="forgotPassSubmit" name="forgotPassSubmit" value="Küldés">
+<i class="material-icons">mail</i>
+<input class="mailInput" type="email" name="email" placeholder="E-mail cím/E-mail address">
+<input class="forgotPassSubmitButton" type="submit"  name="forgotPassSubmit" value="Küldés" >
 </form>
 
 </body>
