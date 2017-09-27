@@ -14,7 +14,30 @@ html, body {
 		background-repeat: no-repeat;
 		background-size: cover;
 }
-
+header {
+	
+	height: 25%;
+}
+.myName {
+		font-family: Mistral; /*  font-family: Freestyle Script;  Mistral; */
+		font-size: 50px;
+		font-weight: bold;
+		text-shadow: ;
+		margin-left: 5px;
+}
+.myJob {
+		font-family: ;
+		font-size: ;
+		font-wight: bold;
+		text-shadow: ;
+		margin-left: 5px;
+}
+.myFaceLogo {
+	margin-top: 10px;
+	margin-left: 70px;
+	width: 83px; /* 83px; 94px; */
+	height: 101px; /*  101px; 115px; */
+}
 .main_background{
 	 background-image: url("images/index_background.jpg");
 	 background-repeat: no-repeat;
