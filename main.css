@@ -1,4 +1,5 @@
 /*@import url('https://fonts.googleapis.com/css?family=Caveat:400,700&subset=latin-ext');*/
+@import url('https://fonts.googleapis.com/css?family=Aladin|Caveat+Brush|Dekko|Eagle+Lake|Gloria+Hallelujah|Kavivanar|Merienda|Sedgwick+Ave|Sriracha');
 
 html, body {
 /*background: url("images/index_background.jpg");*/
@@ -27,11 +28,14 @@ header {
 	overflow-x: hidden !important;
 /*animation-direction: reverse;*/
 }
-#fejlec_tabla{
+#fejlec_tabla {
 	z-index: 2;
 	position: relative;
 	overflow-y: hidden !important;
 	overflow-x: hidden !important;
+}
+#fejlec_tabla td > * {
+    vertical-align : middle !important;
 }
 #mylogo_td {
 	position: relative;
@@ -375,10 +379,20 @@ footer {
 	position: absolute;
 	z-index: 1;
     display: block;
-	top: 2em;
+	/*top: 2em;*/
     width: 65%;
     font-size: 1.8em;
-
+	font-family: 'Gloria Hallelujah', cursive;
+	/*
+    font-family: 'Gloria Hallelujah', cursive;
+    font-family: 'Aladin', cursive;
+    font-family: 'Dekko', cursive;
+    font-family: 'Kavivanar', cursive;
+    font-family: 'Sedgwick Ave', cursive;
+    font-family: 'Eagle Lake', cursive;
+    font-family: 'Sriracha', cursive;
+    font-family: 'Merienda', cursive;
+    font-family: 'Caveat Brush', cursive; */
 	animation-duration: 40s;
 	animation-timing-function: ease-in-out;
 	animation-iteration-count: infinite;
