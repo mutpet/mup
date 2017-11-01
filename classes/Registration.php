@@ -9,6 +9,9 @@ if(!(class_exists('MailMessage'))) {
 		include_once 'classes/MailMessage.php'; 
 }
 
+if(!(class_exists('Messages'))) {
+	include_once 'classes/Messages.php'; 
+}
 //include_once ('classes/MyDatabaseConnection.php');
 //include_once('lib/phpmailer/class.phpmailer.php');
 //include_once('template.php');
@@ -80,9 +83,9 @@ class Registration {
 			
 				}
 				catch (\Exception $e) {
-				self::$database->rollback();
+				//self::$database->rollback();
 				$_SESSION['message'] = $e->getMessage();
-				$_SESSION['message_class'] = "fail";
+				$_SESSION['message_class'] = "error";
 				//header("location: index.php"); 										//átirányítás az index.php oldalra
 				
 				}

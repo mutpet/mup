@@ -373,6 +373,11 @@ footer {
 		background: #9fff80 !important;
 		color: #008000 !important;
 }
+#error_msg.info{
+		border: 2px solid #cc9900 !important;
+		background: #ffff99 !important;
+		color: #e6b800 !important;
+}
 .item-1, 
 .item-2, 
 .item-3 {
