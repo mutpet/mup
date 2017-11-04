@@ -45,7 +45,7 @@ class Logout {
 		//unset cookie !
 			setcookie('mup_user','',time()-86400);
 		//logout message	
-			$_SESSION['message'] = Messages::getMessage('succ_text2');
+			$_SESSION['message'] = Messages::getMessage('log_succ_text2');
 			$_SESSION['message_class'] = Messages::getCssClass('succ');
 			header("location: index.php");
 			exit();

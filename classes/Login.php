@@ -85,12 +85,12 @@ class Login {
 			
 			if(empty($this->request['username'])) {
 			//	throw new \Exception('A bejelentkezéshez kérem adja meg felhasználónevét! / Please enter your username to log in!');
-				throw new \Exception(Messages::getMessage('fail_text1'));
+				throw new \Exception(Messages::getMessage('log_fail_text1'));
 			}
 			
 			if(empty($this->request['password'])) {
 			//	throw new \Exception('A bejelentkezéshez kérem adja meg jelszavát! / Please enter your password to log in!');
-				throw new \Exception(Messages::getMessage('fail_text2'));
+				throw new \Exception(Messages::getMessage('log_fail_text2'));
 			}
 			
 			$user_query = self::$database->prepare( "SELECT is_confirmed FROM user WHERE username = :username AND password =  MD5( :password ) ");
@@ -101,13 +101,13 @@ class Login {
 			
 			if($user_query->rowCount() == 0) {
 			//	throw new \Exception('A felhasználónév vagy a jelszó nem megfelelő! Kérem próbálja meg újra! / The username or password is incorrect! Please try again!');
-				throw new \Exception(Messages::getMessage('fail_text3'));
+				throw new \Exception(Messages::getMessage('log_fail_text3'));
 			}
 			
 			$result = $user_query->fetch(\PDO::FETCH_OBJ);
 			if($result->is_confirmed <= 0) {
 			//	throw new \Exception('A bejelentkezéshez, kérem erősítse meg regisztrációját a postafiokjába küldött automatikus e-mailben található link segítségével! Majd próbálja meg újra a bejelentkezést! / The user is not confirmed yet! Please try again!');
-				throw new \Warning(Messages::getMessage('info_text1'));
+				throw new \Warning(Messages::getMessage('log_info_text1'));
 			}
 			
 			if(empty($this->request['rememberme'])) {
@@ -132,7 +132,7 @@ class Login {
 					$_SESSION['message'] = "Ön sikeresen bejelentkezett!";
 					$_SESSION['message_class'] = "success";
 					*/
-					$_SESSION['message'] = Messages::getMessage('succ_text1');
+					$_SESSION['message'] = Messages::getMessage('log_succ_text1');
 					$_SESSION['message_class'] = Messages::getCssClass('succ');
 					
 					$this->closeLoginWindow();

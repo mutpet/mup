@@ -10,7 +10,11 @@ if(!(class_exists('MailMessage'))) {
 }
 
 if(!(class_exists('Messages'))) {
-	include_once 'classes/Messages.php'; 
+	include_once 'classes/Messages.php';
+}
+
+if(!(class_exists('Warning'))) {
+	include_once 'classes/Warning.php'; 
 }
 //include_once ('classes/MyDatabaseConnection.php');
 //include_once('lib/phpmailer/class.phpmailer.php');
