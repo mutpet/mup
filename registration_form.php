@@ -52,8 +52,10 @@
 </form>
 <?php
 	if(!empty($_SESSION['message'])) {
-	echo "<div id='error_msg'>".$_SESSION['message']."</div>";
-	unset($_SESSION['message']); 
+		$message = "<div id='error_msg' class='".$_SESSION['message_class']."'>".$_SESSION['message']."</div>";
+		 unset($_SESSION['message']);
+		 //echo "<div id='error_msg'>".$_SESSION['message']."</div>";
+		 //unset($_SESSION['message']); 
 }
 ?>
 </body>

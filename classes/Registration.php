@@ -58,38 +58,45 @@ class Registration {
 		try {
 				
 				if(empty($this->request['name'])) {
-					throw new \Exception('A regisztrációhoz kérem adja meg nevét! / Please enter your name for registration!');
+				//	throw new \Exception('A regisztrációhoz kérem adja meg nevét! / Please enter your name for registration!');
+					throw new \Exception(Messages::getMessage('reg_fail_text1'));
 				}
 				
 				if(empty($this->request['username'])) {
-					throw new \Exception('A regisztrációhoz kérem adja meg felhasználónevét! / Please enter your username to register!');
+				//	throw new \Exception('A regisztrációhoz kérem adja meg felhasználónevét! / Please enter your username to register!');
+					throw new \Exception(Messages::getMessage('reg_fail_text2'));
 				}
 				
 				if(empty($this->request['email'])) {
-					throw new \Exception('A regisztrációhoz kérem adja meg e-mail címét! / Please enter your e-mail address to register!');
+				//	throw new \Exception('A regisztrációhoz kérem adja meg e-mail címét! / Please enter your e-mail address to register!');
+					throw new \Exception(Messages::getMessage('reg_fail_text3'));
 				}
 				
 				if(empty($this->request['password'])) {
-					throw new \Exception('A regisztrációhoz kérem adjon meg egy jelszót! / Please enter a password to register!');
+				//	throw new \Exception('A regisztrációhoz kérem adjon meg egy jelszót! / Please enter a password to register!');
+					throw new \Exception(Messages::getMessage('reg_fail_text4'));
 				}
 				
 				if(empty($this->request['password2'])) {
-					throw new \Exception('A regisztrációhoz kérem erősítse meg jelszavát! / Please re-enter your password to register!');
+				//	throw new \Exception('A regisztrációhoz kérem erősítse meg jelszavát! / Please re-enter your password to register!');
+					throw new \Exception(Messages::getMessage('reg_fail_text5'));
 				}
 				
 				if(strlen($this->request['password']) < 6 ) {
-					throw new \Exception('A jelszónak legalább 6 karakter hosszúnak kell lennie! / The password must be at least 6 characters long!');
+				//	throw new \Exception('A jelszónak legalább 6 karakter hosszúnak kell lennie! / The password must be at least 6 characters long!');
+					throw new \Exception(Messages::getMessage('reg_fail_text6'));
 				}
 				
 				if($this->request['password'] != $this->request['password2']) {
-					throw new \Exception('A megadott jelszó nem egyezik meg a megerősített jelszóval! Kérem ellenőrizze! / The password you entered does not match your password! Please check!');
+				//	throw new \Exception('A megadott jelszó nem egyezik meg a megerősített jelszóval! Kérem ellenőrizze! / The password you entered does not match your password! Please check!');
+					throw new \Exception(Messages::getMessage('reg_fail_text7'));
 				}
 			
 				}
 				catch (\Exception $e) {
 				//self::$database->rollback();
 				$_SESSION['message'] = $e->getMessage();
-				$_SESSION['message_class'] = "error";
+				$_SESSION['message_class'] = Messages::getCssClass('error');
 				//header("location: index.php"); 										//átirányítás az index.php oldalra
 				
 				}
@@ -118,11 +125,11 @@ class Registration {
 				}
 		catch(\Exception $e) {
 				$reg_sql = self::$database->rollback();
-				exit('Sikertelen regisztráció! A regisztráció nem jött létre. A művelet visszavonásra került. Kérem próbálja újra! / Registration failed! Registration was not created. The operation was canceled. Please try again!' .$e->getMessage());
+				exit(Messages::getMessage('reg_fail_text8') .$e->getMessage());
 				}			
 		
-				$_SESSION['message'] = "Sikeres regisztráció! Kérem erősítse meg regisztrációját a postafiókjába küldött e-mailben található link segítségével! / Successful registration! Please confirm your registration with the link in your email account!" ;
-				$_SESSION['message_class'] = "success";
+				$_SESSION['message'] = Messages::getMessage('reg_succ_text1');
+				$_SESSION['message_class'] = Messages::getCssClass('succ');
 				//$_SESSION['username'] = $this->request['username'];	
 				//header("location: index.php"); 										//átirányítás az index.php oldalra
 				

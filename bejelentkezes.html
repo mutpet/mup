@@ -1,35 +1,57 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-	<title>Bejelentkezés</title>
-	<link rel="icon" type="image/gif/png" href="images/mup_ico.png">
+	<title>Bejelentkezés/Login</title>
 	<link rel="stylesheet" type="text/css" href="bejelentkezes.css">
+	
+	<!--<script src="jquery-1.8.3.min.js"></script>-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="main.js"></script>
 </head>
 <body>
+<div id="login_container">
 <div class="header">
-	<h1>Bejelentkezés</h1>
+	<h1><(text_1)></h1>
 </div>
 <form method="post" action="bejelentkezes.php">
 	<table>
 		<tr>
-			<td><span class="felirat">Felhasználónév:</span></td>
+			<td><span class="felirat"><(text_2)></span></td>
 		</tr>
 		<tr>
 			<td><input type="text" name="username" class="userInput"></td>
 		</tr>
 		<tr>
-			<td><span class="felirat">Jelszó:</span></td>
+			<td><span class="felirat"><(text_3)></span></td>
 		</tr>
 		<tr>
-			<td><input type="password" name="jelszo" class="passInput"></td>
+			<td><input type="password" name="password" class="passInput"></td>
 		</tr>
-			<tr>
-			<td>&nbsp</td>
-			</tr>
-			<tr>
-			<td><input type="submit" id="login_gomb" name="login_gomb" value="Belépés"></td>
+		<tr>
+			<td height="5px"></td>
 		</tr>
-	</table>	
+		<tr>
+			<td class="remember_td"><span class="felirat"><(text_4)></span><input type="checkbox" name="rememberme" id="rememberme"></td>
+		</tr>
+		<tr>
+			<td></td>
+		</tr>
+		<tr>
+			<td>
+				<div class="forgotten_pw_container">
+					<a  id="forgotten_pw_url" href="#" onclick="openForgotPasswordWindow();"><(text_5)><img id="question_mark_img" src="images/login/question_mark.png" height="19px"></a>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td height="20px"></td>
+		</tr>
+		<tr>
+			<td><input type="submit" id="login_gomb" name="login_gomb" value="<(text_6)>" onclick="saveCheckbox()" ></td>
+			<td><input type="button" id="cancel_gomb" name="cancel_gomb" value="<(text_7)>" onclick="updateCheckbox(); closeLoginWindow()"></td>
+		</tr>
+	</table>
+</div>
 </form>
 </body>
 </html>

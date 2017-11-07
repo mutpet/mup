@@ -62,8 +62,10 @@ class Translator {
 				$tmp->set($text['text_no'], $text['text']);
 			}
 			
+			switch ($template_file) {
 			    //Ha a template html fájl az index.html, akkor további html elemek beállítása az index felületére
-			if($template_file == 'index.html') {
+			//if($template_file == 'index.html') {
+				case 'index.html':
 				$tmp->set('login_button', $temp_array['login_button']);
 				$tmp->set('logout_button', $temp_array['logout_button']);
 				$tmp->set('lang_hu', $temp_array['lang_hu']);	
@@ -82,12 +84,18 @@ class Translator {
 				$tmp->set('visitors', $temp_array['visitors']);
 				$tmp->set('script', $temp_array['script']);
 				$tmp->set('lang', $this->session['languages']);
-			}elseif($template_file == 'service.html') {	
+				break;
+				
+			//}elseif($template_file == 'service.html') {
+				case 'service.html':	
 				$tmp->set('lang_hu', $temp_array['lang_hu']);	
 				$tmp->set('lang_en', $temp_array['lang_en']);
 				$tmp->set('script', $temp_array['script']);
 				$tmp->set('lang', $this->session['languages']);
-			}else{
+				break;
+				
+			//}else{
+				default:
 				//általános, állandó html elemek beállítása a megadott html template felületre
 				$tmp->set('login_button', $temp_array['login_button']);
 				$tmp->set('logout_button', $temp_array['logout_button']);

@@ -1,70 +1,37 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Bejelentkezés/Login</title>
-	<link rel="stylesheet" type="text/css" href="bejelentkezes.css">
-	
-	<!--<script src="jquery-1.8.3.min.js"></script>-->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script src="main.js"></script>
-</head>
-<body>
-<div id="login_container">
-<div class="header">
-	<h1>Bejelentkezés</h1>
-</div>
-<form method="post" action="bejelentkezes.php">
-	<table>
-		<tr>
-			<td><span class="felirat">Felhasználónév:</span></td>
-		</tr>
-		<tr>
-			<td><input type="text" name="username" class="userInput"></td>
-		</tr>
-		<tr>
-			<td><span class="felirat">Jelszó:</span></td>
-		</tr>
-		<tr>
-			<td><input type="password" name="password" class="passInput"></td>
-		</tr>
-		<tr>
-			<td height="5px"></td>
-		</tr>
-		<tr>
-			<td class="remember_td"><span class="felirat">Emlékezzen rám:</span><input type="checkbox" name="rememberme" id="rememberme"></td>
-		</tr>
-		<tr>
-			<td></td>
-		</tr>
-		<tr>
-			<td>
-				<div class="forgotten_pw_container">
-					<a  id="forgotten_pw_url" href="#" onclick="openForgotPasswordWindow();">Elfelejtette jelszavát<img id="question_mark_img" src="images/login/question_mark.png" height="19px"></a>
-				</div>
-			</td>
-		</tr>
-		<tr>
-			<td height="20px"></td>
-		</tr>
-		<tr>
-			<td><input type="submit" id="login_gomb" name="login_gomb" value="Belépés" onclick="saveCheckbox()" ></td>
-			<td><input type="button" id="cancel_gomb" name="cancel_gomb" value="Mégse" onclick="updateCheckbox(); closeLoginWindow()"></td>
-		</tr>
-	</table>
-</div>
-</form>
-
 <?php
+
 if(!(class_exists('Login'))) {
 	include_once 'classes/Login.php'; 
 }
+
+if(!(class_exists('Translator'))) {
+	include_once 'classes/Translator.php'; 
+}
+
+if(!isset($_SESSION)) { 
+	session_start();
+}
+
+$file_name = basename(__FILE__);
+$template_file = 'bejelentkezes.html';
+
+if(!empty($_SESSION['message'])) {
+		$message = "<div id='error_msg' class='".$_SESSION['message_class']."'>".$_SESSION['message']."</div>";
+		 unset($_SESSION['message']);
+
+
+if(!empty($_SESSION['languages'])) {
+//A 'Translator' nevű osztály példányosítása(átadva a $_SESSION szuperglobális tömbböt, és ennek az aktuális php fájlnak a nevét). 
+//A 'TextTranslation' nevű metódus meghívása. (Átadva a metódusnak az ehhez a fájlhoz tartozó template html nevét, és mivel vár még egy tömbböt a metódus, amire a bejelentkező ablak esetén nincsen szükségünk, ezért azt NULL kezdeti értékkel adjuk át.)  	
+			  $text = new Translator($_SESSION, $file_name);
+			  $text->TextTranslation($template_file, $temp_array = null);
+		}
 
 if(!empty($_REQUEST)) {
 $login = new Login($_REQUEST);
 $login->validate();
 $login->closeLoginWindow();
 }
+
 ?>
 
-</body>
-</html>
