@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Regisztráció</title>
+	<link rel="stylesheet" type="text/css" href="registration_form.css">
+	<link rel="stylesheet" type="text/css" href="main.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="main.js"></script>
+</head>
+<body>
+<div class="header">
+	<h1><(text_1)></h1>
+</div>
+
+<form action="registration_form.php" method="post">
+	<table>
+		<tr>
+			<td><span class="felirat"><(text_2)></span></td>
+			<td><input type="text" id="name" name="name" class="nevInput"></td>
+		</tr>
+		<tr>
+			<td><span class="felirat"><(text_3)></span></td>
+			<td><input class="userInput" type="text" id="username" name="username" ></td>
+		</tr>
+		<tr>
+			<td><span class="felirat"><(text_4)></span></td>
+			<td><input type="email" id="email" name="email" class="emailInput"></td>
+		</tr><tr>
+			<td><span class="felirat"><(text_5)></span></td>
+			<td><input type="password" id="password" name="password" class="passInput"></td>
+		</tr><tr>
+			<td><span class="felirat"><(text_6)></span></td>
+			<td><input type="password" id="password2" name="password2" class="passInput2"></td>
+		</tr><tr>
+			<td></td>
+		<td><input type="submit" id="regisztral_gomb" name="regisztral_gomb" value="<(text_1)>"></td>
+		</tr>
+	</table>	
+</form>
+</body>
+<(message)>
+</html>
