@@ -54,11 +54,21 @@ function updateCheckbox() {
 		localStorage.clear()
 }	
 	
-/*setInterval(function login(){ window.opener.location.reload(false);	}, 4000);*/	
+/*setInterval(function login(){ window.opener.location.reload(false);	}, 4000);*/
+
+/* Ezzel a függvénnyel csak a Bejelentkező kis ablakot frissítettem meg a 'Belépés' gomb megnyomásakor hívodott meg! Hátha real time-ban megjelenik az üzenet.
+function loginRefresh() {
+	loginWindow = window.location.reload();
+	}
+*/
 
 $(document).ready(function(){
 	
 	refreshCheckbox();
+	//A főoldalon/bejelentkező ablakon megjelenő üzenetek elhalványításos eltüntetése (fade-elése. fade effect)
+	$("#error_msg").fadeIn('middle');
+	$("#error_msg").animate({opacity: 1.0}, 2000);
+	$("#error_msg").fadeOut(2000);	
 	//alert('Ez a document.ready-ben lévő, checkbox értékének localstorage-ba letárolása!');
 	/*
 	 if(document.getElementById('rememberme') !== null && localStorage.getItem('rememberme') !== null){
@@ -76,7 +86,7 @@ $(document).ready(function(){
 		$("#error_msg").fadeOut(2000);	
 	}*/
 	
- $("#login_gomb").click(function(){ 
+ $("#login_gomb").click(function(){
 	 window.onunload = refreshParent;
 	function refreshParent() {
         window.opener.location.reload();	

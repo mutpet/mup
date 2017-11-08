@@ -28,6 +28,7 @@ class Messages {
 					'reg_fail_text6' => 'A jelszónak legalább 6 karakter hosszúnak kell lennie!',
 					'reg_fail_text7' => 'A megadott jelszó nem egyezik meg a megerősített jelszóval! Kérem ellenőrizze!',
 					'reg_fail_text8' => 'Sikertelen regisztráció! A regisztráció nem jött létre. A művelet visszavonásra került. Kérem próbálja újra!',
+					'reg_fail_text9' => 'Sikertelen regisztráció! Regisztráció nem jött létre. Kérem próbálja újra!',
 					//Elfelejtette jelszavát? Bejelentkező ablakról elérhető funkció üzenetei   (classes\ForgotPassword.php Felülete: \forgotpassword.php)
 					'forg_pw_fail_text1' => 'A megadott e-mail címmel még nem történt regisztráció!',
 					'forg_pw_fail_text2' => 'Adatbázis művelet hiba. Az ellenőrző kód létrehozása sikertelen! Kérem próbálja meg újra!',
@@ -53,6 +54,7 @@ class Messages {
 					'reg_fail_text6' => 'The password must be at least 6 characters long!',
 					'reg_fail_text7' => 'The password you entered does not match your password! Please check!',
 					'reg_fail_text8' => 'Registration failed! Registration was not created. The operation was canceled. Please try again!',
+					'reg_fail_text9' => 'Registration failed! Registration was not created. Please try again! ',
 					//Elfelejtette jelszavát? Bejelentkező ablakról elérhető funkció üzenetei   (classes\ForgotPassword.php Felülete: \forgotpassword.php)
 					'forg_pw_fail_text1' => 'You have not registered yet with the given email address!',
 					'forg_pw_fail_text2' => 'Database operation error. Unable to create verification code! Please try again!',

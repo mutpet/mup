@@ -96,7 +96,7 @@ $script = '<script language="javascript" src="jquery-1.8.3.min.js"></script>
 			   $message = '';
 			  if (!empty($_SESSION['message'])) {
 				  $message = "<div id='error_msg' class='".$_SESSION['message_class']."'>".$_SESSION['message']."</div>";
-				  unset($_SESSION['message']);
+				  //unset($_SESSION['message']);
 			  }
 			  //A template html -nek átadandó állandó elemek deklarálása
 			  $login_button = '<input id="login_button" type="button" value="'.$login_button_value.'" '.$login_visible.' onclick="openLoginWindow()">'; //Bejelentkezés gomb

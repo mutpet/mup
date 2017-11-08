@@ -151,9 +151,13 @@ class MailMessage {
 	  //$mail->AddCC("mupetya@yahoo.co.uk");
 	  
 	  if(!$mail->Send()) {
-		echo "E-mail küldési hiba: " . $mail->ErrorInfo;
+		//echo "E-mail küldési hiba: " . $mail->ErrorInfo;
+		$_SESSION['message'] = Messages::getMessage('reg_fail_text9');
+		$_SESSION['message_class'] = Messages::getCssClass('error');
 	  }else{
-		echo "Az E-mail sikeresen elküldésre került! :)";
+		//echo "Az E-mail sikeresen elküldésre került! :)";
+		$_SESSION['message'] = Messages::getMessage('reg_succ_text1');
+		$_SESSION['message_class'] = Messages::getCssClass('succ');
 	  }
 	  
 	  return;

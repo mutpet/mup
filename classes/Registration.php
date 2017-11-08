@@ -52,7 +52,7 @@ class Registration {
 		$this->request = $request;
 	}
 	
-	private function checkRegistration() {
+	public function checkRegistration() {
 		
 		//Regisztrációhoz szükséges mezők vizsgálatai és hibakezelései
 		try {
@@ -97,16 +97,20 @@ class Registration {
 				//self::$database->rollback();
 				$_SESSION['message'] = $e->getMessage();
 				$_SESSION['message_class'] = Messages::getCssClass('error');
+				header("Refresh:0");
 				//header("location: index.php"); 										//átirányítás az index.php oldalra
+				//header("Refresh:0; url=index.php");
 				
 				}
+				
+			//	Registration::setRegistration();  //Az ugyanebben az osztályban lévő: 'setRegistration()' nevű metódus meghívása
 				
 				return;
 	}
 	
 	public function setRegistration() {
 		
-		$registration_validation = $this->checkRegistration();				//Az ugyanebben az osztályban lévő: 'checkRegistration' nevű metódus meghívása
+		//$registration_validation = $this->checkRegistration();				//Az ugyanebben az osztályban lévő: 'checkRegistration' nevű metódus meghívása
 		
 		
 		//Regisztráció létrehozása, a User által megadott regisztrációs adatok felvitele a 'user' adattáblába
@@ -127,9 +131,11 @@ class Registration {
 				$reg_sql = self::$database->rollback();
 				exit(Messages::getMessage('reg_fail_text8') .$e->getMessage());
 				}			
-		
+				/* Ez elvileg ide még egyszer felesleges. Elég akkor kiirni hogy minden ok, ha elment reg. visszaigazoló email hiba nélkül!
 				$_SESSION['message'] = Messages::getMessage('reg_succ_text1');
 				$_SESSION['message_class'] = Messages::getCssClass('succ');
+				*/
+				
 				//$_SESSION['username'] = $this->request['username'];	
 				//header("location: index.php"); 										//átirányítás az index.php oldalra
 				

@@ -94,6 +94,14 @@ class Translator {
 				$tmp->set('lang', $this->session['languages']);
 				break;
 				
+				case 'bejelentkezes.html':
+				$tmp->set('message', $temp_array['message']);
+				break;
+				
+				case 'registration_form.html':
+				$tmp->set('message', $temp_array['message']);
+				break;
+				
 			//}else{
 				default:
 				//általános, állandó html elemek beállítása a megadott html template felületre

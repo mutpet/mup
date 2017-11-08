@@ -47,11 +47,12 @@
 			<td height="20px"></td>
 		</tr>
 		<tr>
-			<td><input type="submit" id="login_gomb" name="login_gomb" value="<(text_6)>" onclick="saveCheckbox()" ></td>
+			<td><input type="submit" id="login_gomb" name="login_gomb" value="<(text_6)>" onclick="saveCheckbox()"></td> <!-- loginRefresh()  plusz függvény hívás amivel a main.js -ben lévő új függvénnyel próbáltam meg megfrissíteni csak a bejelentkező kis ablakot. Működik is, de ettől még nem jelenik meg rögtön az üzenet.-->
 			<td><input type="button" id="cancel_gomb" name="cancel_gomb" value="<(text_7)>" onclick="updateCheckbox(); closeLoginWindow()"></td>
 		</tr>
 	</table>
 </div>
 </form>
+<(message)>
 </body>
 </html>
