@@ -20,8 +20,8 @@ if(!(class_exists('GetLanguage'))) {
 
 
 $script = '<link rel="stylesheet" type="text/css" href="main.css">
-			  <link rel="stylesheet" type="text/css" href="references.css">
-			  <script type="text/javascript" src="main.js"></script>';
+		   <link rel="stylesheet" type="text/css" href="references.css">
+		   <script type="text/javascript" src="main.js"></script>';
 			   
 			   
 //Alapértelmezett nyelvi beállítási érték. (Az alapértelmezett nyelv a Magyar nyelv.)

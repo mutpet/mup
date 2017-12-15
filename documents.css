@@ -1,4 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Caveat:400,700&subset=latin-ext');
 @import url('//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css');
+@import url('https://fonts.googleapis.com/css?family=Baloo+Thambi|Lalezar|Racing+Sans+One|Suez+One');
 /* <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> */
 html, body {
 		overflow-x: hidden;
@@ -9,6 +11,164 @@ html, body {
 		background-image: url("images/myweb_background.png");
 		background-repeat: no-repeat;
 		background-size: cover;
+}
+header {
+	width: 100%;
+	  padding-top: 0px !important;
+	  margin-top: 0px !important;
+	  margin: 0;
+	  padding:0;
+}
+.aa {
+  vertical-align: middle !important;
+}
+.myName {
+	  position: relative;
+	  display: block;
+	  font-family: Mistral; /*  font-family: Freestyle Script;  Mistral; */
+	  font-size: 50px;
+	  font-weight: bold;
+	  text-shadow: ;
+	  margin-left: 5px;
+}
+.myJob1 {
+	  font-family: 'Racing Sans One', cursive; /* 
+	  font-family: 'Racing Sans One', cursive;
+	  font-family: 'Baloo Thambi', cursive;
+	  font-family: 'Lalezar', cursive;
+	  font-family: 'Suez One', serif; */
+	  font-size: 25px;
+	  font-wight: bold;
+	  text-shadow: ;
+	  margin-left: 5px;
+}
+.myJob2 {
+	  font-family: 'Racing Sans One', cursive; /* 
+	  font-family: 'Racing Sans One', cursive;
+	  font-family: 'Baloo Thambi', cursive;
+	  font-family: 'Lalezar', cursive;
+	  font-family: 'Suez One', serif; */
+	  font-size: 25px;
+	  font-wight: bold;
+	  text-shadow: ;
+	  margin-left: 5px;
+}
+.myFaceLogo {
+  margin-top: 10px;
+  margin-left: 70px;
+  width: 83px; /* 83px; 94px; */
+  height: 101px; /*  101px; 115px; */
+}
+#mylogo{
+  position: relative;
+  width: 90px; 
+  height: 60px;
+  display: block;	
+  margin: auto;
+  float: initial;
+  vertical-align: middle;
+  text-align: center;
+}
+#animated_div {
+  width: 100px;/*76px;*/
+  height: 60px;/*47px;*/
+  /*background: url("images/my_logo.png");*/
+  background: #92B901;
+  color: #ffffff;
+  position: relative;
+  font-weight: bold;
+  font-size: 20px;
+  /*padding: 10px;*/
+  animation: animated_div 5s 1;
+  -moz-animation: animated_div 5s 1;
+  -webkit-animation: animated_div 5s 1;
+  -o-animation: animated_div 5s 1;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+::before, ::after {
+  box-sizing: inherit;
+}
+@keyframes animated_div {
+0% {
+  transform: rotate(0deg);
+  right: 0px;
+}
+25% {
+  transform: rotate(20deg);
+  right: 0px;
+}
+50% {
+  transform: rotate(0deg);
+  right: 300px;
+}
+55% {
+  transform: rotate(0deg);
+  right: 300px;
+}
+70% {
+  transform: rotate(0deg);
+  right: 300px;
+  background: #1ec7e6;
+}
+100% {
+  transform: rotate(-360deg);
+  right: 0px;
+}
+}
+@keyframes animated_div {
+0% {
+  -webkit-transform: rotate(0deg);
+  right: 0px;
+}
+25% {
+  -webkit-transform: rotate(20deg);
+  right: 0px;
+}
+50% {
+  -webkit-transform: rotate(0deg);
+  right: 300px;
+}
+55% {
+  -webkit-transform: rotate(0deg);
+  right: 300px;
+}
+70% {
+  -webkit-transform: rotate(0deg);
+  right: 300px;
+  background: #1ec7e6;
+}
+100% {
+  -webkit-transform: rotate(-360deg);
+  right: 0px;
+}
+}
+@keyframes animated_div {
+0% {
+  -moz-transform: rotate(0deg);
+  right: 0px;
+}
+25% {
+  -moz-transform: rotate(20deg);
+  right: 0px;
+}
+50% {
+  -moz-transform: rotate(0deg);
+  right: 300px;
+}
+55% {
+  -moz-transform: rotate(0deg);
+  right: 300px;
+}
+70% {
+  -moz-transform: rotate(0deg);
+  right: 300px;
+  background: #1ec7e6;
+}
+100% {
+  -moz-transform: rotate(-360deg);
+  right: 0px;
+}
 }
 #doc_h1 {
 	position: relative;
@@ -24,28 +184,29 @@ html, body {
 	color: lightgray;
 }
 .file_img{
-	width: 60%;
-	height: 70%;
-}
-.sam_img{
-	width: 35%;
-	height: 40%;
-}
-.cert_img{
-	width: 60%;
+	width: 50%;
 	height: 60%;
 }
+.sam_img{
+	width: 25%;
+	height: 30%;
+}
+.cert_img{
+	width: 40%;
+	height: 40%;
+}
 lang_img{
-	width: 55%;
-	height: 45%;
+	width: 40%;
+	height: 35%;
 }
 .oth_img{
-	width: 80%;
-	height: 80%;
+	width: 45%;
+	height: 45%;
 }
 .oth2_img{
-	width: 50%;
-	height: 35%;	
+	width: 70%;
+	height: 70%;
+	
 }
 
 .img_text{

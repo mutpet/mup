@@ -23,21 +23,34 @@ var fb_lang = lang.substring(1, lang.length) + lang.toUpperCase();
 	(document, 'script', 'facebook-jssdk'));
 </script>
 <header>
-<table width="100%" height="15%" id="fejlec_tabla">
-<tr>
-<td>
-<h1><(text_1)><br><(text_2)></h1>
-</td>
-<td>
-<span class="item-1"><(text_3)></span>
-<span class="item-2"><(text_4)></span>
-<span class="item-3"><(text_5)></br>&nbsp;<!--A szerző--></span>
-<!-- 
-"A siker nem döntő, a kudarc nem végzetes: a bátorság, hogy folytasd, ez az, ami számít."</br>&nbsp;Winston Churchill
-"Nincs okod nem a szívedre hallgatni." Steve Jobs
-"Az élet néha fejbe vág egy téglával. De ne veszítsd el a hited!" Steve Jobs
--->
-</td>
+	<table width="100%"  id="fejlec_tabla">
+		<tr>
+		<td>
+		<img class="myFaceLogo" src="images/myfacelogo.png" />
+		<div class="myName">
+		<(text_1)>
+		</div>
+		<div class="myJob1"><(text_2)></div>
+		<div class="myJob2"><(text_6)></div>
+		</td>
+		
+		<td class="aa">
+		
+		<span class="item-1"><(text_3)></span>
+		<span class="item-2"><(text_4)></span>
+		<span class="item-3"><(text_5)></span>
+		
+		<!-- 
+		"A siker nem döntő, a kudarc nem végzetes: a bátorság, hogy folytasd, ez az, ami számít."</br>&nbsp;Winston Churchill
+		"Nincs okod nem a szívedre hallgatni." Steve Jobs
+		"Az élet néha fejbe vág egy téglával. De ne veszítsd el a hited!" Steve Jobs
+		-->
+		</td>
+<td align="right">
+<div id="animated_div">
+<img id="mylogo" src="images/my_logo.png" />
+</div>
+</td> 
 </tr>
 </table>
 </header>
@@ -72,13 +85,13 @@ var fb_lang = lang.substring(1, lang.length) + lang.toUpperCase();
 <h2 class="doc" align="center"><(text_10)></h2>
 <table class="doc_table" align="center">
 <tr>
-<td align="center"><a href=""/><img class="file_img" src="images/files/doc.png"/></a></td>
-<td align="center"><a href=""/><img class="file_img" src="images/files/docx.png"/></a></td>
-<td align="center"><a href=""/><img class="file_img" src="images/files/pdf.png"/></a></td>
+<!--<td align="center"><a href=""/><img class="file_img" src="images/files/doc.png"/></a></td>-->
+<!--<td align="center"><a href=""/><img class="file_img" src="images/files/docx.png"/></a></td>-->
+<td align="center"><a href="src/cv/Mutter_Peter_CV.pdf"/><img class="file_img" src="images/files/pdf.png"/></a></td>
 </tr>
 <tr>
-<td align="center" class="img_text"><(text_11)></td>
-<td align="center" class="img_text"><(text_12)></td>
+<!--<td align="center" class="img_text"><(text_11)></td>-->
+<!--<td align="center" class="img_text"><(text_12)></td>-->
 <td align="center" class="img_text"><(text_13)></td>
 </tr>
 </table>
@@ -104,6 +117,12 @@ var fb_lang = lang.substring(1, lang.length) + lang.toUpperCase();
 <td align="center" ><a href=""/><img class="cert_img" src="images/files/certificate.png"></a></td>
 <td align="center" ><a href=""/><img class="cert_img" src="images/files/certificate.png"></a></td>
 </tr>
+<tr>
+	<td align="center" class="img_text"><(text_30)></td>
+	<td align="center" class="img_text"><(text_16)></td>
+	<td align="center" class="img_text"><(text_17)></td>
+	<td align="center" class="img_text"><(text_18)></td>
+	</tr>
 </table>
 <h2 class="doc" align="center"><(text_23)></h2>
 <table class="doc_table" align="center">
@@ -116,16 +135,15 @@ var fb_lang = lang.substring(1, lang.length) + lang.toUpperCase();
 </table>
 
 <h2 class="doc" align="center"><(text_25)></h2>
-<table  >
+<table align="center">
 <tr>
-<td ><a href=""/><img class="oth_img" src="images/files/5years_in_service.png"></a></td>
-<td>&nbsp</td>
-<td ><a href="src/other/employee_of_the_month_january_2017.pdf" target="_blank"/><img class="oth2_img" src="images/files/employee_of_the_month.png"></a></td>
+<td align="center" ><a href=""/><img class="oth_img" src="images/files/5years_in_service.png"></a></td>
+<td align="center" ><a href="src/other/employee_of_the_month_january_2017.pdf" target="_blank"/><img class="oth2_img" src="images/files/employee_of_the_month.png"></a></td>
 </tr>
 <tr>
-<td  class="img_text"><(text_26)></td>
+<td class="img_text"><(text_26)></td>
 <td width="50px">&nbsp</td>
-<td  class="img_text"><(text_27)></td>
+<td class="img_text"><(text_27)></td>
 </tr>
 </table>
 

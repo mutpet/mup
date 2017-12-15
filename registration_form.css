@@ -145,3 +145,58 @@ td {
 	color: white !important;
 		text-align: right;
 }
+.avatar { 
+		border: 1px solid #666666; 
+		-moz-border-radius: 5px; 
+		-webkit-border-radius: 5px; 
+		border-radius: 5px; 
+		width: 488px; 
+		height: 91px; 
+		float: left; 
+		background:white; 
+}
+.avatar .list { 
+		float: left; 
+		width: 430px; 
+		padding-top: 8px; 
+		overflow: hidden; 
+}
+.avatar td { 
+		width: 59px; 
+		text-align: center; 
+		padding-bottom: 3px; 
+}
+.avatar td img { 
+		width: auto!important; 
+		height: auto!important; 
+		max-height: 49px!important; 
+}
+.avatar .gvRadio { 
+		margin-left: 17px; 
+		display: inline; 
+}
+.avatar .arrow_left, .avatar .arrow_right { 
+		float: left; 
+		display: inline!important; 
+		width: 20px; 
+		margin: 33px 0 0 0; 
+}
+.avatar .arrow_left { 
+		margin-left: 10px; 
+		margin-right: 10px; 
+}
+.avatar .arrow_right { 
+		margin-right: 2px; 
+		float: right; 
+}
+.avatar .arrow_left a, .avatar .arrow_right a { 
+	display: block; 
+	overflow: hidden; 
+	text-indent: -1000em; 
+	width: 13px; 
+	height: 22px; 
+	background: url("images/avatars/reg.form.png") no-repeat 0px -200px; 
+}
+.avatar .arrow_right a { 
+	background: url("images/avatars/reg.form.png") no-repeat -13px -200px !important; 
+}
