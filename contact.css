@@ -10,6 +10,26 @@ html, body {
 		background-repeat: no-repeat;
 		background-size: cover;
 }
+.contact_img_container{
+	position: relative;
+    width: 100%;
+}
+.img_right{
+	position: absolute;
+	right: 350px;
+	top: 35px;
+}
+.vline{
+	border-left: 10px solid green;
+    height: 500px;
+    position: absolute;
+    left: 50%;
+    margin-left: 10px;
+    top: 30%;
+}
+#myself_contact{
+   
+}
 #con_h1 {
 	position: relative;
 	color: lightgray;
@@ -42,24 +62,24 @@ html, body {
 	height: 80px !important;
 }
 #yho_img{
-	width: 63px;
-	height: 63px;
+	width: 44px;
+	height: 44px;
 }
 #gm_img{
-	width: 66px;
-	height: 66px;
+	width: 42px;
+	height: 40px;
 }
 #skp_img{
-	width: 69px;
-	height: 69px;
+	width: 45px;
+	height: 45px;
 }
 #tw_img{
-	width: 69px;
-	height: 69px;
+	width: 45px;
+	height: 45px;
 }
 #lin_img{
-	width: 65px;
-	height: 65px;
+	width: 43px;
+	height: 43px;
 }
 #prof_img{
 	width: 61px;
