@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Work+Sans:200&subset=latin-ext');
+@import url('https://fonts.googleapis.com/css?family=Oswald:400,500');
 
 html, body {
     height:100%;
@@ -7,7 +8,18 @@ html, body {
     font-family: "Work sans",Arial;
     color: white;
 }
+.fb-like {
+    margin:23px;
+}
 
+span.partner_text {
+    margin:23px;
+    padding:0;
+    font-family: 'Oswald', sans-serif;
+    color: black !important;
+    font-size: 24px;
+    font-weight: bold;
+}
 a {
     color: white;
 }
@@ -76,6 +88,7 @@ a {
     margin-left: auto;
     margin-right: auto;
 }
+
 .gomb {
     padding: 15px;
     margin: 10px;
@@ -83,6 +96,26 @@ a {
     background: rgba(0, 0, 0, 0.5);;
     font-family: Arial;
     font-size: 16px;
+    text-align: center;
+    text-transform: uppercase;
+    display: inline-block;
+}
+
+.felso_gombdoboz {
+    margin-top: 5px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.felso_gomb {
+    padding: 5px;
+    margin: 5px;
+    width: 115px;
+    height: 20px;
+    background: rgba(0, 0, 0, 0.5);;
+    font-family: Arial;
+    font-size: 18px !important;
+    font-weight: bold;
     text-align: center;
     text-transform: uppercase;
     display: inline-block;

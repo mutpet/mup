@@ -177,7 +177,7 @@ td {
 }
 .avatar .arrow_left, .avatar .arrow_right { 
 		float: left; 
-		display: inline!important; 
+		display: inline !important; 
 		width: 20px; 
 		margin: 33px 0 0 0; 
 }
