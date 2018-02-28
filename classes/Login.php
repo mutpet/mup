@@ -14,6 +14,10 @@ if(!(class_exists('Messages'))) {
 if(!(class_exists('Warning'))) {
 	include_once 'classes/Warning.php'; 
 }
+
+if(!(class_exists('Translator'))) {
+	include_once 'classes/Translator.php'; 
+}
 /**
  * A weboldalra való bejelentkezés(login-olás) osztály definiciója
  *
@@ -30,20 +34,24 @@ class Login {
     * @var null|object database 
     */
 	private static $database = null;
-	
-	
+	/**
+	 * @var string avatar 
+	 */
+	public $avatar = '';
+
 	// Konstruktor:
-	public function __construct ($request = array()) {
+	public function __construct ($request = array(), $avatar = '') {
 		//adatbázis kapcsolat 
 		//self::$pdo = newPdoConnection();
 		if(!(self::$database instanceof \PDO)) {
 			  self::$database = MyDatabaseConnection::dataBaseConnect();
 		}
 		$this->request = $request;
+		$this->avatar = $avatar;
 		//$this->database = $this->database->dataBaseConnect();
 	}
 	
-	public function validate() {
+	public function validateLogin() {
 		// Adattagok beállítása a paraméterek alapján
 		//$this->username = $username;
 		//$this->password =  $password;
@@ -93,7 +101,7 @@ class Login {
 				throw new \Exception(Messages::getMessage('log_fail_text2'));
 			}
 			
-			$user_query = self::$database->prepare( "SELECT is_confirmed FROM user WHERE username = :username AND password =  MD5( :password ) ");
+			$user_query = self::$database->prepare( "SELECT is_confirmed, avatar FROM user WHERE username = :username AND password =  MD5( :password ) ");
 			$user_query->bindValue(':username', $this->request['username']);
 			$user_query->bindValue(':password', $this->request['password']);
 			//$user_query->bindValue(':is_confirmed', 1, \PDO::PARAM_INT);
@@ -105,10 +113,34 @@ class Login {
 			}
 			
 			$result = $user_query->fetch(\PDO::FETCH_OBJ);
+			
+			
 			if($result->is_confirmed <= 0) {
 			//	throw new \Exception('A bejelentkezéshez, kérem erősítse meg regisztrációját a postafiokjába küldött automatikus e-mailben található link segítségével! Majd próbálja meg újra a bejelentkezést! / The user is not confirmed yet! Please try again!');
 				throw new \Warning(Messages::getMessage('log_info_text1'));
+
 			}
+
+			$_SESSION['avatar'] = '<img src="images/avatars/'.$result->avatar.'"/>';
+			
+			
+			$file_name = '';
+			$template_file = '';
+			$message = '';
+			$temp_array = array( 'login_button'=>null, 
+								 'logout_button'=>null, 
+								 'lang_hu'=>null, 
+								 'lang_en'=>null, 
+								 'menu_item'=>null,
+								 'login_info' =>null,
+								 'login_info_style' =>null,
+								 'prefix'=>null,
+								 'message'=>$message,
+								 'visitors'=>null,
+								 'script'=>null );
+
+			$text = new Translator($_SESSION, $file_name);
+			$text->TextTranslation($template_file, $temp_array);
 			
 			if(empty($this->request['rememberme'])) {
 				$this->request['rememberme'] = '';
@@ -132,6 +164,7 @@ class Login {
 					$_SESSION['message'] = "Ön sikeresen bejelentkezett!";
 					$_SESSION['message_class'] = "success";
 					*/
+					$_SESSION['avatar'] = '<img src="images/avatars/'.$result->avatar.'"/>';
 					$_SESSION['message'] = Messages::getMessage('log_succ_text1');
 					$_SESSION['message_class'] = Messages::getCssClass('succ');
 					
@@ -214,11 +247,15 @@ class Login {
 				if($remember == "on") {
 					
 					$_SESSION['username'] = $this->request['username'];
+				//	$_SESSION['avatar'] =  '<img src="images/avatars/'.$result->avatar.'"/>';
+					//var_dump($avatar);
 					setcookie('mup_user',md5($this->request['username']),time()+86400);   
 
 				}else if($remember == "") {
                    
 					$_SESSION['username'] = $this->request['username'];
+				//	$_SESSION['avatar'] = '<img src="images/avatars/'.$result->avatar.'"/>';
+					var_dump($_SESSION);
 
 				}
 
@@ -228,20 +265,21 @@ class Login {
 	
 
 	public function closeLoginWindow() {
-		
+		die();
 		exit('<script>setTimeout(function(){ window.close(); }, 3000);</script>');
 						
 	}
 
 	public static function checkCookie($cookie) {
 			self::$database = MyDatabaseConnection::dataBaseConnect();
-			$query_db_username = self::$database->prepare( "SELECT username FROM user WHERE MD5( username ) = :username ");
+			$query_db_username = self::$database->prepare( "SELECT username, avatar FROM user WHERE MD5( username ) = :username ");
 			$query_db_username->bindValue(':username', $cookie);
 			$query_db_username->execute();
 			$result = $query_db_username->fetch(\PDO::FETCH_OBJ);
 			
 			if($query_db_username->rowCount() == 1) {	
 				$_SESSION['username'] = $result->username;
+				$_SESSION['avatar'] = '<img src="images/avatars/'.$result->avatar.'"/>';
 			}
 	}	
 	

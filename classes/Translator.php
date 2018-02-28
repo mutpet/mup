@@ -77,6 +77,7 @@ class Translator {
 				$tmp->set('login_info', $temp_array['login_info']);
 				if(!empty($this->session['username'])) {	
 					$tmp->set('username', $this->session['username']);
+					$tmp->set('avatar', $this->session['avatar']);
 				}else{
 					$tmp->set('username', '');
 				}
@@ -113,10 +114,13 @@ class Translator {
 				$tmp->set('login_info', $temp_array['login_info']);
 				$tmp->set('menu_item', $temp_array['menu_item']);
 				$tmp->set('script', $temp_array['script']);
+				
 				if(!empty($this->session['username'])) {	
 					$tmp->set('username', $this->session['username']);
+					$tmp->set('avatar', $this->session['avatar']);
 				}else{
 				$tmp->set('username', '');
+				$tmp->set('avatar', '');
 				}
 				$tmp->set('lang', $this->session['languages']);
 			}

@@ -105,7 +105,7 @@ class Registration {
 				
 			//	Registration::setRegistration();  //Az ugyanebben az osztályban lévő: 'setRegistration()' nevű metódus meghívása
 				
-				return;
+				return 'NEM ÉRTEM KOMOLYAN!';
 	}
 	
 	public function setRegistration() {
@@ -116,13 +116,14 @@ class Registration {
 		//Regisztráció létrehozása, a User által megadott regisztrációs adatok felvitele a 'user' adattáblába
 				$reg_sql = self::$database->beginTransaction();
 		 try {	
-				$reg_sql = self::$database->prepare("INSERT INTO `user` (name, username, email, password, is_confirmed, confirm_code) VALUES (:name, :username, :email, :password, :is_confirmed, :confirm_code)");
+				$reg_sql = self::$database->prepare("INSERT INTO `user` (name, username, email, password, is_confirmed, confirm_code, avatar) VALUES (:name, :username, :email, :password, :is_confirmed, :confirm_code, :avatar)");
 				$reg_sql->bindValue(':name', $this->request['name']);
 				$reg_sql->bindValue(':username', $this->request['username']);
 				$reg_sql->bindValue(':email', $this->request['email']);
 				$reg_sql->bindValue(':password', md5($this->request['password']));
 				$reg_sql->bindValue(':is_confirmed', 0);
 				$reg_sql->bindValue(':confirm_code', self::$confirm_code);
+				$reg_sql->bindValue(':avatar', $this->request['avatar']);
 				$reg_sql->execute();
 				$last_id = self::$database->lastInsertId();
 				$reg_sql = self::$database->commit();

@@ -8,11 +8,12 @@ var showed_items = 7;
 var one_item = null;
 
 
-    if ($('face_content') != null) {
+    if ($('#face_content') != null) {
         
 
-    $('jobbra_link').addEvent('click', (facejobbra));
-    $('balra_link').addEvent('click', (facebalra));
+    //$('#jobbra_link').event.preventDefault('click', (facejobbra));
+    //$('#balra_link').event.preventDefault('click', (facebalra));
+    jQuery.Event('click', facejobbra);
 
     calc_items();
             
@@ -42,7 +43,7 @@ function calc_items() {
           
     
  
-     $('face_content').style.width = (face_img_item_count * item_width) + "px";
+     $('#face_content').style.width = (face_img_item_count * item_width) + "px";
  }
  
  function Scroll(akt_pos_par, next_pos_par, dir_par) {
@@ -51,7 +52,7 @@ function calc_items() {
      
  
  
-     $('face_content').style.left = (akt_pos_par) + "px";
+     $('#face_content').style.left = (akt_pos_par) + "px";
  
      if (dir_par == "dn") {
          if (akt_pos_par > next_pos_par) {
@@ -78,7 +79,7 @@ function calc_items() {
  }
  function verScroll(dir, lp) {
     
-    var size = $('spotlight_belso').getSize();
+    var size = $('#spotlight_belso').getSize();
     
     
     if (size.x<400)
@@ -94,8 +95,8 @@ function calc_items() {
         loop = lp;
 
     if (document.getElementById) {
-        oDiv = $('spotlight_belso');
-        oContent = $('face_content');
+        oDiv = $('#spotlight_belso');
+        oContent = $('#face_content');
     } else {
         return;
     }
@@ -108,7 +109,7 @@ function calc_items() {
                 
                  
         if (akt_item < (face_img_item_count - showed_items)) {
-            $('balra_link').className = "spotlight_balra_act";
+            $('#balra_link').className = "spotlight_balra_act";
             akt_pos = 0 - (item_width * akt_item);
             // akt_item++;
             akt_item = akt_item + showed_items;
@@ -123,7 +124,7 @@ function calc_items() {
             // $('balra_link').className="spotlight_balra";
             if (akt_item > 0) {
 
-                $('jobbra_link').className = "spotlight_jobbra_act";
+                $('#jobbra_link').className = "spotlight_jobbra_act";
                 akt_pos = 0 - (item_width * akt_item);
                 akt_item = akt_item - showed_items;
                 next_pos = 0 - (item_width * akt_item);

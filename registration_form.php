@@ -24,7 +24,7 @@ if(!empty($_SESSION['message'])) {
 		unset($_SESSION['message']);
 }
 
-$temp_array = array( 'login_button'=>null, 
+$temp_array = array( 							'login_button'=>null, 
 												'logout_button'=>null, 
 												'lang_hu'=>null, 
 												'lang_en'=>null, 
@@ -47,7 +47,7 @@ if(!empty($_REQUEST)) {
 	
 $new_signup = new Registration($_REQUEST);
 $new_signup->checkRegistration();
-//$new_signup->setRegistration();
+$new_signup->setRegistration();
 
 }
 
