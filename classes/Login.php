@@ -34,10 +34,7 @@ class Login {
     * @var null|object database 
     */
 	private static $database = null;
-	/**
-	 * @var string avatar 
-	 */
-	public $avatar = '';
+	
 
 	// Konstruktor:
 	public function __construct ($request = array(), $avatar = '') {
@@ -47,7 +44,7 @@ class Login {
 			  self::$database = MyDatabaseConnection::dataBaseConnect();
 		}
 		$this->request = $request;
-		$this->avatar = $avatar;
+		
 		//$this->database = $this->database->dataBaseConnect();
 	}
 	
@@ -113,7 +110,7 @@ class Login {
 			}
 			
 			$result = $user_query->fetch(\PDO::FETCH_OBJ);
-			
+			$avatar = '<img src="images/avatars/'.$result->avatar.'"/>';
 			
 			if($result->is_confirmed <= 0) {
 			//	throw new \Exception('A bejelentkezéshez, kérem erősítse meg regisztrációját a postafiokjába küldött automatikus e-mailben található link segítségével! Majd próbálja meg újra a bejelentkezést! / The user is not confirmed yet! Please try again!');
@@ -121,9 +118,9 @@ class Login {
 
 			}
 
-			$_SESSION['avatar'] = '<img src="images/avatars/'.$result->avatar.'"/>';
-			
-			
+
+			self::AvatarDisplaying($avatar);
+
 			$file_name = '';
 			$template_file = '';
 			$message = '';
@@ -164,7 +161,7 @@ class Login {
 					$_SESSION['message'] = "Ön sikeresen bejelentkezett!";
 					$_SESSION['message_class'] = "success";
 					*/
-					$_SESSION['avatar'] = '<img src="images/avatars/'.$result->avatar.'"/>';
+					$_SESSION['avatar'] = $avatar;
 					$_SESSION['message'] = Messages::getMessage('log_succ_text1');
 					$_SESSION['message_class'] = Messages::getCssClass('succ');
 					
@@ -241,6 +238,17 @@ class Login {
 		   }
 		}	
 	*/
+
+	private static function AvatarDisplaying($avatar) {
+		
+						if(empty($avatar)) {
+							$avatar = '<img src="images/avatars/default_avatar.png"/>';		
+						} 
+						$_SESSION['avatar'] = $avatar;
+						//$_SESSION['avatar'] = '<img src="images/avatars/'.$result->avatar.'"/>';
+						return;
+					}
+
 	
 	private function rememberMe($remember) {
 
@@ -255,7 +263,7 @@ class Login {
                    
 					$_SESSION['username'] = $this->request['username'];
 				//	$_SESSION['avatar'] = '<img src="images/avatars/'.$result->avatar.'"/>';
-					var_dump($_SESSION);
+				//	var_dump($_SESSION);
 
 				}
 
@@ -265,7 +273,7 @@ class Login {
 	
 
 	public function closeLoginWindow() {
-		die();
+		// die();
 		exit('<script>setTimeout(function(){ window.close(); }, 3000);</script>');
 						
 	}
