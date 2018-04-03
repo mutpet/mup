@@ -1,7 +1,8 @@
 body{
-     background: url("images/FF_kod_hatter.jpg");
+	/*
+	 background: url("images/FF_kod_hatter.jpg");
 	 background-attachment: fixed;
-	
+	 */	
 }
 .header{
 		background-color: #1A3333;
@@ -13,17 +14,22 @@ body{
 		opacity: 0.5;
 }
 form{
-		background-image: url("images/regisztracio_hatter2.jpg"); /*Author and Original source: http://www.makeuseof.com/tag/3-password-security-myths-that-too-many-of-us-believe/ */
+		/*	
+		background-image: url("images/regisztracio_hatter2.jpg"); /*Author and Original source: http://www.makeuseof.com/tag/3-password-security-myths-that-too-many-of-us-believe/
 		background-repeat: no-repeat;
 		opacity:0.8;
 		padding: 55px;
 		border: 2px solid #cbcbcb;
 		margin: 5px auto;
+		*/
 }
 .felirat{
 	color: white !important;
 	background-color: gray !important;
-	
+	font-weight: bold !important;
+	font-family: Arial, Helvetica, sans-serif;
+	/*background-color: white !important;*/
+	text-shadow: 2px 2px black;
 }
 input[type=text]:focus {
   background-color: #FFFFB3;
@@ -128,8 +134,12 @@ input[type=password]:focus {
 		opacity: 0.8;
 }
 #regisztral_gomb{
+		
 		font-weight: bold;
 		text-align:center;
+		width: 110px;
+		height: 35px;
+		cursor: pointer;
 }
 #error_msg{
 		width: 50%;

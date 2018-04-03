@@ -18,14 +18,14 @@ class MailMessage {
 		
 	}
 	
-	private function dataForConfirmMail($letter_name, $last_id, $confirm_code) {
+	private function dataForConfirmMail($letter_lastname, $letter_firstname, $last_id, $confirm_code) {
 		
 		$temp_confirm = new template("mail_template.html");
 		$header_title = 'Regisztráció aktiválása / Activate registration:';
-		$regverify_message_hu  = '<p>Kedves ' . $letter_name . '!</p>Köszönöm, hogy regisztrált weboldalamra!<br>Kérem, hogy az alábbi linkre való kattintással hagyja jóvá regisztrációját:</br>';
+		$regverify_message_hu  = '<p>Kedves ' . $letter_lastname . ' '. $letter_firstname . '!</p>Köszönöm, hogy regisztrált weboldalamra!<br>Kérem, hogy az alábbi linkre való kattintással hagyja jóvá regisztrációját:</br>';
 		$regverify_url_hu = '<p><a href="registration_verify.php?id=' . $last_id . '&code=' . $confirm_code . '">Regisztráció megerősítéséhez Kérem kattintson ide!</a></p>';
 		$signature_hu = 'Üdvözlettel!<br>Mutter Péter</br><p></p><p></p><hr>';
-		$regverify_message_en = '<p>Dear ' . $letter_name . '!</p>Thank you for registering at my website!<br>To activate your account, please click the link below:</br>';
+		$regverify_message_en = '<p>Dear ' . $letter_lastname . ' '. $letter_firstname . '!</p>Thank you for registering at my website!<br>To activate your account, please click the link below:</br>';
 		$regverify_url_en = '<p><a href="registration_verify.php?id=' . $last_id . '&code=' . $confirm_code . '">To confirm your registration please click here!</a></p>';
 		$signature_en = 'Regards!<br>Peter Mutter</br>';
 		
@@ -52,7 +52,8 @@ class MailMessage {
 		var_dump($result);
 		$table = '<table border="1" cellspacing="0" cellpadding="0" width="100%">';
 		$table .= '<thead><tr>';
-		$table .= '<th bgcolor="#a9a9a9"><b>Teljes Név</b></th>';
+		$table .= '<th bgcolor="#a9a9a9"><b>Vezetéknév</b></th>';
+		$table .= '<th bgcolor="#a9a9a9"><b>Keresztnév</b></th>';
 		$table .= '<th bgcolor="#a9a9a9"><b>Felhasználónév</b></th>';
 		$table .= '<th bgcolor="#a9a9a9"><b>E-mail</b></th>';
 		$table .= '<th bgcolor="#a9a9a9"><b>Jelszó(MD5)</b></th>';
@@ -68,7 +69,8 @@ class MailMessage {
 		//Táblázat cellák és adataik összeállítása:
 		$table .= '<tbody>';
 		$table .= '<tr>';
-		$table .= '<td align="center" bgcolor="#faebd7">'. $result["name"] .'</td>';
+		$table .= '<td align="center" bgcolor="#faebd7">'. $result["lastname"] .'</td>';
+		$table .= '<td align="center" bgcolor="#faebd7">'. $result["firstname"] .'</td>';
 		$table .= '<td align="center" bgcolor="#faebd7">' .$result["username"]. '</td>';
 		$table .= '<td align="center" bgcolor="#faebd7">' .$result["email"]. '</td>';
 		$table .= '<td align="center" bgcolor="#faebd7">' .$result["password"]. '</td>';
@@ -139,12 +141,12 @@ class MailMessage {
 	  
 	}
 
-	public function createConfirmMail($last_id, $confirm_code, $address, $letter_name) {
+	public function createConfirmMail($last_id, $confirm_code, $address, $letter_lastname, $letter_firstname) {
 		
 	  $mail = new MyMailer(true);
 	  $mail->From = "mupetike@gmail.com";
 	  $mail->Subject = "Sikeres regisztráció visszaigazolás. (Kérem ne válaszoljon erre a levélre!) / Successful registration confirmation. (Please don't reply to this e-mail message!)" ;
-	  $mail->Body = $this->dataForConfirmMail($letter_name, $last_id, $confirm_code);
+	  $mail->Body = $this->dataForConfirmMail($letter_lastname, $letter_firstname, $last_id, $confirm_code);
 	  //var_dump($address);
 	  $mail->AddAddress($address);
 	  

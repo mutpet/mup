@@ -36,19 +36,22 @@ $temp_array = array( 							'login_button'=>null,
 												'visitors'=>null,
 												'script'=>null );
 
-if(!empty($_SESSION['languages'])) {
-//A 'Translator' nevű osztály példányosítása(átadva a $_SESSION szuperglobális tömbböt, és ennek az aktuális php fájlnak a nevét). 
-//A 'TextTranslation' nevű metódus meghívása. (Átadva a metódusnak az ehhez a fájlhoz tartozó template html nevét, és mivel vár még egy tömbböt a metódus, amire a bejelentkező ablak esetén nincsen szükségünk, ezért azt NULL kezdeti értékkel adjuk át.)  	
-			  $text = new Translator($_SESSION, $file_name);
-			  $text->TextTranslation($template_file, $temp_array);
-}
-
 if(!empty($_REQUEST)) {
-	
 $new_signup = new Registration($_REQUEST);
 $new_signup->checkRegistration();
-$new_signup->setRegistration();
-
+//$new_signup->setRegistration();
 }
+
+if(!empty($_SESSION['languages'])) {
+	//A 'Translator' nevű osztály példányosítása(átadva a $_SESSION szuperglobális tömbböt, és ennek az aktuális php fájlnak a nevét). 
+	//A 'TextTranslation' nevű metódus meghívása. (Átadva a metódusnak az ehhez a fájlhoz tartozó template html nevét, és mivel vár még egy tömbböt a metódus, amire a bejelentkező ablak esetén nincsen szükségünk, ezért azt NULL kezdeti értékkel adjuk át.)  	
+	$text = new Translator($_SESSION, $file_name);
+	$text->TextTranslation($template_file, $temp_array);
+}
+
+
+
+
+
 
 ?>
