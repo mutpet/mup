@@ -167,7 +167,7 @@ class Registration {
 				//header("location: index.php"); 										//átirányítás az index.php oldalra
 				
 				//A legutolsó (frissen) beszúrt rekord id-jának meghatározása
-				$forward_id = $this->getDataForConfirmMail($last_id);    //Az ugyanebben az osztályban lévő: 'getDataForConfirmMail' nevű metódus meghívása paraméterátadással (átadva neki az utolsó id-ít, mint a metódus argumentuma)
+				Registration::getDataForConfirmMail($last_id);    //Az ugyanebben az osztályban lévő: 'getDataForConfirmMail' nevű metódus meghívása paraméterátadással (átadva neki az utolsó id-ít, mint a metódus argumentuma)
 
 				return;
 					

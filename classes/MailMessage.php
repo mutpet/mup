@@ -25,7 +25,7 @@ class MailMessage {
 		$regverify_message_hu  = '<p>Kedves ' . $letter_lastname . ' '. $letter_firstname . '!</p>Köszönöm, hogy regisztrált weboldalamra!<br>Kérem, hogy az alábbi linkre való kattintással hagyja jóvá regisztrációját:</br>';
 		$regverify_url_hu = '<p><a href="registration_verify.php?id=' . $last_id . '&code=' . $confirm_code . '">Regisztráció megerősítéséhez Kérem kattintson ide!</a></p>';
 		$signature_hu = 'Üdvözlettel!<br>Mutter Péter</br><p></p><p></p><hr>';
-		$regverify_message_en = '<p>Dear ' . $letter_lastname . ' '. $letter_firstname . '!</p>Thank you for registering at my website!<br>To activate your account, please click the link below:</br>';
+		$regverify_message_en = '<p>Dear ' . $letter_firstname . ' '. $letter_lastname . '!</p>Thank you for registering at my website!<br>To activate your account, please click the link below:</br>';
 		$regverify_url_en = '<p><a href="registration_verify.php?id=' . $last_id . '&code=' . $confirm_code . '">To confirm your registration please click here!</a></p>';
 		$signature_en = 'Regards!<br>Peter Mutter</br>';
 		
@@ -49,7 +49,6 @@ class MailMessage {
 		$temp_regnotice = new template("mail_template.html");
 		//Táblázat fejlécének összeállítása:
 		$header_title = 'Új, sikeres felhasználói regisztráció:';
-		var_dump($result);
 		$table = '<table border="1" cellspacing="0" cellpadding="0" width="100%">';
 		$table .= '<thead><tr>';
 		$table .= '<th bgcolor="#a9a9a9"><b>Vezetéknév</b></th>';
@@ -93,16 +92,16 @@ class MailMessage {
 
 	}
 	
-	public  function dataForResetPasswordMail($result, $verify_code) {
+	public function dataForResetPasswordMail($result, $verify_code) {
 		//var_dump();
 		//exit();
 		$temp_reset_password = new template("mail_template.html");
 		$header_title = 'Új jelszó igénylése / Request a new password:';
-		$pw_verify_message_hu  = '<p>Tisztelt ' . $result["name"] . '!</p>Az Ön jelszavának megváltoztatásához biztonsági, érvényesítő kód szükséges! Az Ön biztonsági, érvényesítő kódja:<strong> ' . $verify_code . '</strong><br>Biztonsági, érvényesítő kódját kérem jegyezze fel, és kezelje bizalmasan! Más személy részére ne adja ki vagy küldje el!</br>
+		$pw_verify_message_hu  = '<p>Tisztelt ' . $result["lastname"].' '.$result["firstname"] . '!</p>Az Ön jelszavának megváltoztatásához biztonsági, érvényesítő kód szükséges! Az Ön biztonsági, érvényesítő kódja:<strong> ' . $verify_code . '</strong><br>Biztonsági, érvényesítő kódját kérem jegyezze fel, és kezelje bizalmasan! Más személy részére ne adja ki vagy küldje el!</br>
 		<br>Jelszavának megváltoztatásához Önnek szüksége lesz az ebben a levélben megtalálható saját biztonsági, érvényesítő kódjára!</br>A jelszavának sikeres megváltoztatásához kérem tartsa be a linken található felsorolt utasításokat!<br>Az alábbi linkre kattintva, változtathatja meg jelenlegi jelszavát az Ön által kívánt új jelszóra.</br>';
 		$pw_verify_url_hu = '<p><a href="resetpassword.php?id=' . $result["id"] . '&mail=' . $result["email"] . '">Új jelszó igényléséhez! Kérem kattintson ide!</a></p>';
 		$signature_hu = 'Üdvözlettel!<br>Mutter Péter</br><p></p><p></p><hr>';
-		$pw_verify_message_en = '<p>Dear ' . $result["name"] . '!</p>To change your password, a security, validation code is required! Your security, validation code:<strong> ' . $verify_code . '</strong><br>Please note your security, validator code and keep it confidential! Do not dispose of it or send it to another person!</br>
+		$pw_verify_message_en = '<p>Dear ' . $result["firstname"].' '.$result["lastname"] . '!</p>To change your password, a security, validation code is required! Your security, validation code:<strong> ' . $verify_code . '</strong><br>Please note your security, validator code and keep it confidential! Do not dispose of it or send it to another person!</br>
 		<br>To change your password, you will need your own security and validation code in this email!</br>To successfully change your password, please follow the instructions listed on the link!<br>Click the link below to change your current password for the new password you want.</br>';
 		$pw_verify_url_en = '<p><a href="resetpassword.php?vc=' . $verify_code . '&mail=' . $result["email"]. '">To apply for a new password please click here!</a></p>';
 		$signature_en = 'Regards!<br>Peter Mutter</br>';
