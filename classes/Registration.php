@@ -29,7 +29,7 @@ if(!(class_exists('Warning'))) {
  
 class Registration {
 
-/**
+	/**
     * @var array request 
     */
 	private $request = array();
@@ -54,93 +54,91 @@ class Registration {
 	
 	public function checkRegistration() {
 		
-		//A Regisztrációhoz szükséges mezők vizsgálatai és hibakezelései:
 		if($_SERVER['REQUEST_METHOD'] == "POST") {
-		try {
-				
-				if(empty($this->request['lastname'])) {
-				//	throw new \Exception('A regisztrációhoz kérem adja meg vezetéknevét! / Please enter your name for registration!');
-					throw new \Exception(Messages::getMessage('reg_fail_text1'));
-				}
+				/* --- A Regisztrációhoz szükséges mezők vizsgálatai és hibakezelései: --- */
+			try {
+					if(empty($this->request['lastname'])) {
+						//throw new \Exception('A regisztrációhoz kérem adja meg vezetéknevét! / Please enter your name for registration!');
+						throw new \Exception(Messages::getMessage('reg_fail_text1'));
+					}
+					if(empty($this->request['firstname'])) {
+						//throw new \Exception('A regisztrációhoz kérem adja meg keresztnevét! / Please enter your name for registration!');
+						throw new \Exception(Messages::getMessage('reg_fail_text2'));
+					}	
 
-				if(empty($this->request['firstname'])) {
-				//	throw new \Exception('A regisztrációhoz kérem adja meg keresztnevét! / Please enter your name for registration!');
-					throw new \Exception(Messages::getMessage('reg_fail_text2'));
-				}	
+					//Felhasználónév ellenőrzései:
+					if(empty($this->request['username'])) {
+						//throw new \Exception('A regisztrációhoz kérem adja meg felhasználónevét! / Please enter your username to register!');
+						throw new \Exception(Messages::getMessage('reg_fail_text3'));
+					}
+					if(!preg_match('/^[a-zA-Z]{1}[a-zA-Z0-9._]{2,}/i', $this->request['username'])) {
+						throw new \Exception(Messages::getMessage('reg_fail_text4'));
+					}
+					if(strlen($this->request['username']) > 25 ) {
+						throw new \Exception(Messages::getMessage('reg_fail_text5'));
+					}
 
-				//Felhasználónév hibakezelései:
-				if(empty($this->request['username'])) {
-				//	throw new \Exception('A regisztrációhoz kérem adja meg felhasználónevét! / Please enter your username to register!');
-					throw new \Exception(Messages::getMessage('reg_fail_text3'));
-				}
+					//E-mail cím ellenőrzései:
+					if(empty($this->request['email'])) {
+						//throw new \Exception('A regisztrációhoz kérem adja meg e-mail címét! / Please enter your e-mail address to register!');
+						throw new \Exception(Messages::getMessage('reg_fail_text6'));
+					}
+					if(!filter_var($this->request['email'], FILTER_VALIDATE_EMAIL)) {
+						throw new \Exception(Messages::getMessage('reg_fail_text7'));
+					}
 
-				if(!preg_match('/^[a-zA-Z]{1}[a-zA-Z0-9._]{2,}/i', $this->request['username'])) {
-					throw new \Exception(Messages::getMessage('reg_fail_text4'));
-				}
-				
-				if(strlen($this->request['username']) > 20 ) {
-					throw new \Exception(Messages::getMessage('reg_fail_text5'));
-				}
-
-				//E-mail cím hibakezelései:
-				if(empty($this->request['email'])) {
-				//	throw new \Exception('A regisztrációhoz kérem adja meg e-mail címét! / Please enter your e-mail address to register!');
-					throw new \Exception(Messages::getMessage('reg_fail_text6'));
-				}
-				
-				if(!filter_var($this->request['email'], FILTER_VALIDATE_EMAIL)) {
-					throw new \Exception(Messages::getMessage('reg_fail_text7'));
-				}
-
-				if(empty($this->request['password'])) {
-				//	throw new \Exception('A regisztrációhoz kérem adjon meg egy jelszót! / Please enter a password to register!');
-					throw new \Exception(Messages::getMessage('reg_fail_text8'));
-				}
-				
-				if(!preg_match('/^[a-zA-Z0-9]{6,}$/', $this->request['password'])) {
-				//	throw new \Exception('A jelszó csak kis és nagybetűkből, számokból állhat, minimum 6 karakter!');
-					throw new \Exception(Messages::getMessage('reg_fail_text9'));
-				}
-				/*
-				if(strlen($this->request['password']) < 6 ) {
-					//	throw new \Exception('A jelszónak legalább 6 karakter hosszúnak kell lennie! / The password must be at least 6 characters long!');
+					//Jelszó ellenőrzései:
+					if(empty($this->request['password'])) {
+						//throw new \Exception('A regisztrációhoz kérem adjon meg egy jelszót! / Please enter a password to register!');
+						throw new \Exception(Messages::getMessage('reg_fail_text8'));
+					}
+					if(!preg_match('/^[a-zA-Z0-9]{6,}$/', $this->request['password'])) {
+						//throw new \Exception('A jelszó csak kis és nagybetűkből, számokból állhat, minimum 6 karakter!');
+						throw new \Exception(Messages::getMessage('reg_fail_text9'));
+					}
+					/*
+					if(strlen($this->request['password']) < 6 ) {
+							//throw new \Exception('A jelszónak legalább 6 karakter hosszúnak kell lennie! / The password must be at least 6 characters long!');
+							throw new \Exception(Messages::getMessage('reg_fail_text11'));
+					}*/
+					//Jelszó megerősítés ellenőrzései:
+					if(empty($this->request['password2'])) {
+						//throw new \Exception('A regisztrációhoz kérem erősítse meg jelszavát! / Please re-enter your password to register!');
+						throw new \Exception(Messages::getMessage('reg_fail_text10'));
+					}
+					if($this->request['password'] != $this->request['password2']) {
+						//throw new \Exception('A megadott jelszó nem egyezik meg a megerősített jelszóval! Kérem ellenőrizze! / The password you entered does not match your password! Please check!');
 						throw new \Exception(Messages::getMessage('reg_fail_text11'));
-				}
-				*/
-				if(empty($this->request['password2'])) {
-				//	throw new \Exception('A regisztrációhoz kérem erősítse meg jelszavát! / Please re-enter your password to register!');
-					throw new \Exception(Messages::getMessage('reg_fail_text10'));
-				}
+					}
 				
-				if($this->request['password'] != $this->request['password2']) {
-				//	throw new \Exception('A megadott jelszó nem egyezik meg a megerősített jelszóval! Kérem ellenőrizze! / The password you entered does not match your password! Please check!');
-					throw new \Exception(Messages::getMessage('reg_fail_text11'));
+				}
+				catch (\Exception $e) {
+						//self::$database->rollback();
+						$_SESSION['message_class'] = Messages::getCssClass('error');
+						$_SESSION['message'] = $e->getMessage();
+						header("Refresh:0; url=registration_form.php");
+						//header("location: index.php"); 	//átirányítás az index.php oldalra
+						//header("Refresh:0; url=index.php");
 				}
 			
-			}
-			catch (\Exception $e) {
-					//self::$database->rollback();
-					
-					$_SESSION['message_class'] = Messages::getCssClass('error');
-					$_SESSION['message'] = $e->getMessage();
-					header("Refresh:0; url=registration_form.php");
-					//header("location: index.php"); 										//átirányítás az index.php oldalra
-					//header("Refresh:0; url=index.php");
-			}
+		}	
+			// ----------------------------------------------------------------------------------------------------------------------------------------------------------------- //
+			/***** Az ugyanebben az osztályban lévő: 'setRegistration()' nevű metódus meghívása. Nem lehet a függvény statikus 'static' mert nem megy át a $this->request !   *****/
+			/***** Az ugyanebben az osztályban lévő metódus kétféleképpen is meghívható: osztálynév::metódusnév(); VAGY egy valtozo = $this->metódusnév(); Ha pedig a         *****/
+			/***** metódus static akkor pedig: self::metódusnév(); -el lehet meghívni. De ekkor a metódusnak static kulcsszóval kell definiálva lennie az osztályon belül!    *****/
+			/***** Például: private static function metódusNév(){...} Viszont a statikus metódus belül csak az osztályon belüli statikusként definiált változókat éri el!     *****/
+			/***** Statikus változók szintén az osztály elején vannak definiálva static kulcsszóval! 																		  *****/
+			//  Nem lehet a függvény static mert nem megy át a $this->request !
+			//	Igy is meghívható az ebben az osztályban lévő metódus!: $setRegistration = $this->setRegistration();
+			// ---------------------------------------------------------------------------------------------------------------------------------------------------------------- //
+				Registration::setRegistration();
 			
-		}
-			//	Registration::setRegistration();  //Az ugyanebben az osztályban lévő: 'setRegistration()' nevű metódus meghívása
-				
-				return ;
-				self::setRegistration();
+				return;
 	}
 	
-	private static function setRegistration() {
+	private function setRegistration() {
 		
-		//$registration_validation = $this->checkRegistration();				//Az ugyanebben az osztályban lévő: 'checkRegistration' nevű metódus meghívása
-		
-		
-		//Regisztráció létrehozása, a User által megadott regisztrációs adatok felvitele a 'user' adattáblába
+		//Regisztráció létrehozása a User által megadott regisztrációs adatok felvitele a 'user' adattáblába!
 				$reg_sql = self::$database->beginTransaction();
 		 try {	
 				$reg_sql = self::$database->prepare("INSERT INTO `user` (lastname, firstname, username, email, password, is_confirmed, confirm_code, avatar) VALUES (:lastname, :firstname, :username, :email, :password, :is_confirmed, :confirm_code, :avatar)");
@@ -170,7 +168,7 @@ class Registration {
 				
 				//A legutolsó (frissen) beszúrt rekord id-jának meghatározása
 				$forward_id = $this->getDataForConfirmMail($last_id);    //Az ugyanebben az osztályban lévő: 'getDataForConfirmMail' nevű metódus meghívása paraméterátadással (átadva neki az utolsó id-ít, mint a metódus argumentuma)
-						//var_dump($last_id);
+
 				return;
 					
 		}

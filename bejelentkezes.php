@@ -42,7 +42,7 @@ if(!empty($_SESSION['languages'])) {
 if(!empty($_REQUEST)) {
 $login = new Login($_REQUEST);
 $login->validateLogin();
-$login->closeLoginWindow();
+//$login->closeLoginWindow();
 }
 
 ?>

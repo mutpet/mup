@@ -14,8 +14,10 @@ class Messages {
 					'log_succ_text2' => 'Ön sikeresen kijelentkezett!',
 					
 					'log_fail_text1' => 'A bejelentkezéshez kérem adja meg felhasználónevét!',
-					'log_fail_text2' => 'A bejelentkezéshez kérem adja meg jelszavát!',
-					'log_fail_text3' => 'A felhasználónév vagy jelszó nem megfelelő! Kérem próbálja meg újra!',
+					'log_fail_text2' => 'Nem megfelelő felhasználónév! A felhasználónév csak betűket,számokat,pontot,alulvonást tartalmazhat!',
+					'log_fail_text3' => 'A bejelentkezéshez kérem adja meg jelszavát!',
+					'log_fail_text4' => 'A jelszó csak kis/nagybetűkből, számokból állhat, minimum 6 karakter!',
+					'log_fail_text5' => 'A felhasználónév vagy jelszó nem megfelelő! Kérem próbálja meg újra!',
 					
 					'log_info_text1' => 'A bejelentkezéshez, kérem erősítse meg regisztrációját a postafiokjába küldött automatikus e-mailben található link segítségével! Majd próbálja meg újra a bejelentkezést!',
 					//Regisztráció magyar nyelvű üzenetei:   (classes\Registration.php)
